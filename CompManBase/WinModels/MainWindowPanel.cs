@@ -35,9 +35,9 @@ namespace CompManBase.WinModels
         #endregion
         public MainWindowPanel()
         {
-            Player = new PlayerBase
+            Player = new Compman
             {
-                State = "Чайник",
+                State = Interfaces.PlayerState.Teapot,
                 Money = 1000,
                 Happy = 100,
             };

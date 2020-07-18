@@ -55,8 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Interfaces\IStates.cs" />
-    <Compile Include="Models\PlayerBase.cs" />
+    <Compile Include="Converters\HappyStringConverter.cs" />
+    <Compile Include="Converters\StateStringConverter.cs" />
+    <Compile Include="Interfaces\Base\IStates.cs" />
+    <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Models\Base\PlayerBase.cs" />
+    <Compile Include="Models\Compman.cs" />
     <Compile Include="WinModels\MainWindowPanel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

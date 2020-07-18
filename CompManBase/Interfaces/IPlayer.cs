@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompManBase.Interfaces
 {
-    interface IStates
+    interface IPlayer : IStates
     {
-        string State { get; set; }
-        int Score { get; set; }
-        int Money { get; set; }
-        int Happy { get; set; }
     }
 }

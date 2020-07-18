@@ -8,13 +8,23 @@ using System.Threading.Tasks;
 
 namespace CompManBase.Models
 {
-    public class PlayerBase : IStates, INotifyPropertyChanged
+    public abstract class PlayerBase : IPlayer, INotifyPropertyChanged
     {
-        private string _state;
+        private PlayerState _state;
         private int _score;
         private int _money;
         private int _happy;
         #region Свойства-зависимости
+        public PlayerState State
+        {
+            get => _state;
+            set
+            {
+                if (value == _state) return;
+                _state = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(State)));
+            }
+        }
         public int Score
         {
             get => _score;
@@ -23,16 +33,6 @@ namespace CompManBase.Models
                 if (value == _score) return;
                 _score = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Score)));
-            }
-        }
-        public string State
-        {
-            get => _state;
-            set
-            {
-                if (value == _state) return;
-                _state = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(State)));
             }
         }
         public int Money
@@ -65,4 +65,6 @@ namespace CompManBase.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
+
 }

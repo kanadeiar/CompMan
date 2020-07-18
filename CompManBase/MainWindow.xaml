@@ -6,14 +6,18 @@
         xmlns:l="clr-namespace:CompManBase"
         xmlns:wm="clr-namespace:CompManBase.WinModels"
         xmlns:m="clr-namespace:CompManBase.Models"
+        xmlns:i="clr-namespace:CompManBase.Interfaces"
+        xmlns:c="clr-namespace:CompManBase.Converters"
         mc:Ignorable="d"
         Title="Компьютерщик" Height="460" Width="500" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Window.Resources>
         <wm:MainWindowPanel x:Key="_sample">
             <wm:MainWindowPanel.Player>
-                <m:PlayerBase State="Статус" Money="1000" Happy="50"/>
+                <m:Compman State="Teapot"  Money="999" Happy="50"/>
             </wm:MainWindowPanel.Player>
         </wm:MainWindowPanel>
+        <c:StateStringConverter x:Key="StateStringConcerter"/>
+        <c:HappyStringConverter x:Key="HappyStringConverter"/>
     </Window.Resources>
     <DockPanel x:Name="MainWindowPanel" DataContext="{StaticResource _sample}">
         <Menu DockPanel.Dock="Top">
@@ -36,13 +40,13 @@
                 <GroupBox Header="Состояние">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockState" Text="{Binding Player.State}"  HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockState" Text="{Binding Player.State, Converter={StaticResource StateStringConcerter}}"  HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="Денег:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockMoney" HorizontalAlignment="Left" Margin="90,31,0,0" TextWrapping="Wrap" Text="0 рублей" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="TextBlockMoney" Content="{Binding Player.Money}" ContentStringFormat="{}{0} рублей" HorizontalAlignment="Left" Margin="85,27,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Очков:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockScore" HorizontalAlignment="Left" Margin="90,52,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockScore" Text="{Binding Player.Score}" HorizontalAlignment="Left" Margin="90,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,73,0,0" TextWrapping="Wrap" Text="Настроение:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockHappy" HorizontalAlignment="Left" Margin="90,73,0,0" TextWrapping="Wrap" Text="Нормальное" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockHappy" Text="{Binding Player.Happy, Converter={StaticResource HappyStringConverter}}" HorizontalAlignment="Left" Margin="90,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
             </Grid>
