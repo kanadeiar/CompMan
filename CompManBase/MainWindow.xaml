@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:l="clr-namespace:CompManBase"
         xmlns:wm="clr-namespace:CompManBase.WinModels"
+        xmlns:m="clr-namespace:CompManBase.Models"
         mc:Ignorable="d"
         Title="Компьютерщик" Height="460" Width="500" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Window.Resources>
-        <wm:MainWindowPanel x:Key="_sample"/>
+        <wm:MainWindowPanel x:Key="_sample">
+            <wm:MainWindowPanel.Player>
+                <m:PlayerBase State="Статус" Money="1000" Happy="50"/>
+            </wm:MainWindowPanel.Player>
+        </wm:MainWindowPanel>
     </Window.Resources>
     <DockPanel x:Name="MainWindowPanel" DataContext="{StaticResource _sample}">
         <Menu DockPanel.Dock="Top">
@@ -31,7 +36,7 @@
                 <GroupBox Header="Состояние">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockState" Text="Чайник"  HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockState" Text="{Binding Player.State}"  HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="Денег:" VerticalAlignment="Top"/>
                         <TextBlock x:Name="TextBlockMoney" HorizontalAlignment="Left" Margin="90,31,0,0" TextWrapping="Wrap" Text="0 рублей" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Очков:" VerticalAlignment="Top"/>
@@ -78,7 +83,7 @@
                     <Grid>
                         <TextBlock x:Name="TextBlockDate" HorizontalAlignment="Left" Margin="12,4,0,0" TextWrapping="Wrap" Text="31.01.2010" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                         <TextBlock x:Name="TextBlockTime" HorizontalAlignment="Left" Margin="104,4,0,0" TextWrapping="Wrap" Text="23:00" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <Button Content="Пауза" HorizontalAlignment="Left" Margin="154,2,0,0" VerticalAlignment="Top" Width="55" FontSize="12"/>
+                        <Button x:Name="ButtonPause" Content="Пауза" HorizontalAlignment="Left" Margin="154,2,0,0" VerticalAlignment="Top" Width="55" FontSize="12" Click="ButtonPause_Click"/>
                     </Grid>
                 </GroupBox>
             </Grid>

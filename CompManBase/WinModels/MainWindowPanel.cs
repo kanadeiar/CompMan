@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompManBase.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,6 +13,8 @@ namespace CompManBase.WinModels
         private string _title;
 
 
+        /// <summary> Главный игрок </summary>
+        public PlayerBase Player { get; set; }
 
 
         #region Свойства-зависимости
@@ -25,9 +28,19 @@ namespace CompManBase.WinModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
             }
         }
+
+
+
+
         #endregion
         public MainWindowPanel()
         {
+            Player = new PlayerBase
+            {
+                State = "Чайник",
+                Money = 1000,
+                Happy = 100,
+            };
             
         }
         public event PropertyChangedEventHandler PropertyChanged;

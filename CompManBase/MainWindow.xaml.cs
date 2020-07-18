@@ -26,5 +26,10 @@ namespace CompManBase
 
 
         }
+
+        private void ButtonPause_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
