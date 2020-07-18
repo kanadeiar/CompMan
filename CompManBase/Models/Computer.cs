@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CompManBase.Interfaces
+namespace CompManBase.Models
 {
-    interface IPlayer : IStates, IGainComputer
+    public class Computer : ComputerBase
     {
-        int Level { get; }
+        public Computer()
+        {
+
+        }
     }
 }

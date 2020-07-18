@@ -14,7 +14,6 @@ namespace CompManBase.Interfaces
         int Money { get; set; }
         int Happy { get; set; }
     }
-
     public enum PlayerState
     {
         Teapot,

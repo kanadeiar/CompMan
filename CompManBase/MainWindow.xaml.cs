@@ -36,7 +36,8 @@ namespace CompManBase
         #region Обработчики событий
         private void ButtonPause_Click(object sender, RoutedEventArgs e)
         {
-            
+            //MessageBox.Show($"{_panel.Player.Level}");
+            //_panel.Player.Computer.Platform = 1;
         }
         #endregion
     }

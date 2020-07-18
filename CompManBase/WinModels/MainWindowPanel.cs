@@ -11,11 +11,21 @@ namespace CompManBase.WinModels
     public class MainWindowPanel : INotifyPropertyChanged
     {
         private string _title;
-
-
-        /// <summary> Главный игрок </summary>
+        /// <summary> Игрок </summary>
         public PlayerBase Player { get; set; }
 
+
+
+        public MainWindowPanel()
+        {
+            Player = new Compman
+            {
+                State = Interfaces.PlayerState.Teapot,
+                Money = 1000,
+                Happy = 100,
+            };
+            
+        }
 
         #region Свойства-зависимости
         public string Title
@@ -33,16 +43,6 @@ namespace CompManBase.WinModels
 
 
         #endregion
-        public MainWindowPanel()
-        {
-            Player = new Compman
-            {
-                State = Interfaces.PlayerState.Teapot,
-                Money = 1000,
-                Happy = 100,
-            };
-            
-        }
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

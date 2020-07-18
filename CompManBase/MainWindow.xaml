@@ -54,15 +54,15 @@
                 <GroupBox Header="Компьютер">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Платформа:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" Text="Intel Pentium 4" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform" Text="{Binding Player.Computer.PlatformName}" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="Память:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy" HorizontalAlignment="Left" Margin="90,29,0,0" TextWrapping="Wrap" Text="1 Gb DDR" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform_Copy" Text="{Binding Player.Computer.RamName}" HorizontalAlignment="Left" Margin="90,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="Жесткий диск:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy1" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" Text="100 GB HDD" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform_Copy1" Text="{Binding Player.Computer.HddName}" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Интернет:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy2" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" Text="Модем" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform_Copy2" Text="{Binding Player.Computer.InternetName}" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="Видеокарта:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy3" HorizontalAlignment="Left" Margin="90,87,0,0" TextWrapping="Wrap" Text="128Mb GeForce" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform_Copy3" Text="{Binding Player.Computer.VideoName}" HorizontalAlignment="Left" Margin="90,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
             </Grid>
@@ -85,7 +85,7 @@
             <Grid HorizontalAlignment="Left" Height="49" Margin="249,10,0,0" VerticalAlignment="Top" Width="223" Background="#FFFFCBCB">
                 <GroupBox Header="Дата и время">
                     <Grid>
-                        <TextBlock x:Name="TextBlockDate" HorizontalAlignment="Left" Margin="12,4,0,0" TextWrapping="Wrap" Text="31.01.2010" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock x:Name="TextBlockDate" HorizontalAlignment="Left" Margin="12,4,0,0" TextWrapping="Wrap" Text="31.01.2020" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                         <TextBlock x:Name="TextBlockTime" HorizontalAlignment="Left" Margin="104,4,0,0" TextWrapping="Wrap" Text="23:00" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
                         <Button x:Name="ButtonPause" Content="Пауза" HorizontalAlignment="Left" Margin="154,2,0,0" VerticalAlignment="Top" Width="55" FontSize="12" Click="ButtonPause_Click"/>
                     </Grid>

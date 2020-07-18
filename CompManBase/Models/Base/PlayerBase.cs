@@ -14,6 +14,15 @@ namespace CompManBase.Models
         private int _score;
         private int _money;
         private int _happy;
+
+        public int Level => Convert.ToInt32(_state) + 1;
+
+        public ComputerBase Computer { get; set; }
+
+        public PlayerBase()
+        {
+            Computer = new Computer();
+        }
         #region Свойства-зависимости
         public PlayerState State
         {
@@ -57,8 +66,7 @@ namespace CompManBase.Models
         }
         #endregion
 
-
-
+        
         public event PropertyChangedEventHandler PropertyChanged;
         private void Changed(string propertyName)
         {

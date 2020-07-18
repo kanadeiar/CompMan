@@ -11,6 +11,5 @@ namespace CompManBase.Models
         public Compman()
         {
         }
-
     }
 }
