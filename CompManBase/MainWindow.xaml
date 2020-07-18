@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:l="clr-namespace:CompManBase"
+        xmlns:wm="clr-namespace:CompManBase.WinModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="460" Width="500" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" ResizeMode="NoResize">
+        Title="Компьютерщик" Height="460" Width="500" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Window.Resources>
+        <wm:MainWindowPanel x:Key="_sample"/>
     </Window.Resources>
-    <DockPanel x:Name="PanelMainWindow">
+    <DockPanel x:Name="MainWindowPanel" DataContext="{StaticResource _sample}">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Игра">
                 <MenuItem Header="Новая"/>
@@ -29,7 +31,7 @@
                 <GroupBox Header="Состояние">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockState" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" Text="Чайник" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockState" Text="Чайник"  HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="Денег:" VerticalAlignment="Top"/>
                         <TextBlock x:Name="TextBlockMoney" HorizontalAlignment="Left" Margin="90,31,0,0" TextWrapping="Wrap" Text="0 рублей" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Очков:" VerticalAlignment="Top"/>
