@@ -59,8 +59,8 @@
     <Compile Include="Converters\StateStringConverter.cs" />
     <Compile Include="Interfaces\Base\IStates.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
-    <Compile Include="Interfaces\IInfoComputer.cs" />
-    <Compile Include="Interfaces\IInfoSoft.cs" />
+    <Compile Include="Interfaces\Base\IInfoComputer.cs" />
+    <Compile Include="Interfaces\Base\IInfoSoft.cs" />
     <Compile Include="Models\Soft.cs" />
     <Compile Include="Models\Base\SoftBase.cs" />
     <Compile Include="Models\Computer.cs" />
