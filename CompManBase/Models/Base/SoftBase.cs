@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompManBase.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CompManBase.Models
 {
-    public abstract class SoftBase : INotifyPropertyChanged
+    public abstract class SoftBase : INotifyPropertyChanged, IInfoSoft
     {
         private int _os;
         private int _develop;
@@ -15,9 +16,21 @@ namespace CompManBase.Models
         private int _browser;
         private int _other;
 
-
         public SoftBase()
         {
+        }
+        /// <summary> Получение уровня части софта компьютера </summary>
+        int IInfoSoft.GetInfo(Parts parts)
+        {
+            switch (parts)
+            {
+                case Parts.Os: return OsNames[_os].Level;
+                case Parts.Develop: return DevelopNames[_develop].Level;
+                case Parts.Antivirus: return AntivirusNames[_antivirus].Level;
+                case Parts.Browser: return BrowserNames[_browser].Level;
+                case Parts.Other: return Other;
+                default: throw new InvalidEnumArgumentException("Неверная часть софта компьютера!");
+            }
         }
         #region Свойства-зависимости
         public int Os
@@ -93,6 +106,14 @@ namespace CompManBase.Models
             public string Name;
             public int Cost;
         }
+        public enum Parts
+        {
+            Os,
+            Develop,
+            Antivirus,
+            Browser,
+            Other
+        }
         #region Данные
         public static SoftPrt[] OsNames = new[]
         {
@@ -122,7 +143,7 @@ namespace CompManBase.Models
             new SoftPrt { Level = 3, Name ="Norton", Cost = 0 },
             new SoftPrt { Level = 4, Name ="Avast", Cost = 0 },
             new SoftPrt { Level = 5, Name ="Comodo", Cost = 6000 },
-            new SoftPrt { Level = 6, Name ="Хакерский", Cost = 900000 },
+            new SoftPrt { Level = 6, Name ="Хакерский", Cost = -1 },
         };
         public static SoftPrt[] BrowserNames = new[]
 {

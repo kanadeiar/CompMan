@@ -24,6 +24,7 @@ namespace CompManBase.WinModels
             };
             Computer = new Computer();
             Soft = new Soft();
+            
         }
 
         #region Свойства-зависимости

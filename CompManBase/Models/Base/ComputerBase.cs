@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompManBase.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CompManBase.Models
 {
-    public abstract class ComputerBase : INotifyPropertyChanged
+    public abstract class ComputerBase : INotifyPropertyChanged, IInfoComputer
     {
         private int _platform;
         private int _ram;
@@ -17,6 +18,19 @@ namespace CompManBase.Models
 
         public ComputerBase()
         {
+        }
+        /// <summary> Получение уровня компонента компьютера </summary>
+        int IInfoComputer.GetLevel(Components components)
+        {
+            switch (components)
+            {
+                case Components.Platform: return PlatformNames[_platform].Level;
+                case Components.Ram: return RamNames[_platform].Level;
+                case Components.Hdd: return HddNames[_platform].Level;
+                case Components.Internet: return InternetNames[_platform].Level;
+                case Components.Video: return VideoNames[_platform].Level;
+                default: throw new InvalidEnumArgumentException("Неверный компонент компьютера!");
+            }
         }
         #region Свойства-зависимости
         public int Platform
@@ -93,6 +107,14 @@ namespace CompManBase.Models
             public int Level;
             public string Name;
             public int Cost;
+        }
+        public enum Components
+        {
+            Platform,
+            Ram,
+            Hdd,
+            Internet,
+            Video
         }
         #region Данные
         public static HardCpt[] PlatformNames = new[]
