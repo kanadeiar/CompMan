@@ -1,10 +1,6 @@
 ﻿using CompManBase.Models;
-using System;
-using System.Collections.Generic;
+using CompManBase.Interfaces;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CompManBase.WinModels
 {
@@ -13,18 +9,21 @@ namespace CompManBase.WinModels
         private string _title;
         /// <summary> Игрок </summary>
         public PlayerBase Player { get; set; }
-
-
+        /// <summary> Компьютер </summary>
+        public ComputerBase Computer { get; set; }
+        /// <summary> Софт на компьютере </summary>
+        public SoftBase Soft { get; set; }
 
         public MainWindowPanel()
         {
-            Player = new Compman
+            Player = new Player
             {
-                State = Interfaces.PlayerState.Teapot,
-                Money = 1000,
-                Happy = 100,
+                State = PlayerState.Teapot,
+                Money = 9000000,
+                Happy = 99.899F,
             };
-            
+            Computer = new Computer();
+            Soft = new Soft();
         }
 
         #region Свойства-зависимости

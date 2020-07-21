@@ -13,7 +13,7 @@
     <Window.Resources>
         <wm:MainWindowPanel x:Key="_sample">
             <wm:MainWindowPanel.Player>
-                <m:Compman State="Teapot"  Money="999" Happy="50"/>
+                <m:Player State="Teapot"  Money="999" Happy="50.545"/>
             </wm:MainWindowPanel.Player>
         </wm:MainWindowPanel>
         <c:StateStringConverter x:Key="StateStringConcerter"/>
@@ -39,12 +39,14 @@
             <Grid HorizontalAlignment="Left" Height="114" Margin="10,10,0,0" VerticalAlignment="Top" Width="223" Background="#FFD5FFAC">
                 <GroupBox Header="Состояние">
                     <Grid>
-                        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockState" Text="{Binding Player.State, Converter={StaticResource StateStringConcerter}}"  HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="Денег:" VerticalAlignment="Top"/>
-                        <Label x:Name="TextBlockMoney" Content="{Binding Player.Money}" ContentStringFormat="{}{0} рублей" HorizontalAlignment="Left" Margin="85,27,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="10,52,0,0" TextWrapping="Wrap" Text="Очков:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockScore" Text="{Binding Player.Score}" HorizontalAlignment="Left" Margin="90,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockState" Text="{Binding Player.State, Converter={StaticResource StateStringConcerter}}"  HorizontalAlignment="Left" Margin="90,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,19,0,0" TextWrapping="Wrap" Text="Уровень:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockLevel" Text="{Binding Player.Level}" HorizontalAlignment="Left" Margin="90,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,37,0,0" TextWrapping="Wrap" Text="Денег:" VerticalAlignment="Top"/>
+                        <Label x:Name="LabelMoney" Content="{Binding Player.Money}" ContentStringFormat="{}{0} рублей" HorizontalAlignment="Left" Margin="85,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" Text="Очков:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockScore" Text="{Binding Player.Score}" HorizontalAlignment="Left" Margin="90,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,73,0,0" TextWrapping="Wrap" Text="Настроение:" VerticalAlignment="Top"/>
                         <TextBlock x:Name="TextBlockHappy" Text="{Binding Player.Happy, Converter={StaticResource HappyStringConverter}}" HorizontalAlignment="Left" Margin="90,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
@@ -54,15 +56,15 @@
                 <GroupBox Header="Компьютер">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Платформа:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform" Text="{Binding Player.Computer.PlatformName}" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform" Text="{Binding Computer.PlatformName}" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="Память:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy" Text="{Binding Player.Computer.RamName}" HorizontalAlignment="Left" Margin="90,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform_Copy" Text="{Binding Computer.RamName}" HorizontalAlignment="Left" Margin="90,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="Жесткий диск:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy1" Text="{Binding Player.Computer.HddName}" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform_Copy1" Text="{Binding Computer.HddName}" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Интернет:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy2" Text="{Binding Player.Computer.InternetName}" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform_Copy2" Text="{Binding Computer.InternetName}" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="Видеокарта:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy3" Text="{Binding Player.Computer.VideoName}" HorizontalAlignment="Left" Margin="90,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockPlatform_Copy3" Text="{Binding Computer.VideoName}" HorizontalAlignment="Left" Margin="90,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
             </Grid>
@@ -70,15 +72,15 @@
                 <GroupBox Header="Программы">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Система:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform1" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" Text="Windows XP" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockOs" Text="{Binding Soft.OsName}" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="Программ-е:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy4" HorizontalAlignment="Left" Margin="90,29,0,0" TextWrapping="Wrap" Text="Delphi 7" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockDevelop" Text="{Binding Soft.DevelopName}" HorizontalAlignment="Left" Margin="90,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="Антивирус:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy5" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" Text="Dr.Web" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockAntovirus" Text="{Binding Soft.AntivirusName}" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Браузер:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy6" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" Text="Internet Explorer" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockBrowser" Text="{Binding Soft.BrowserName}" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="Другой софт:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockPlatform_Copy7" HorizontalAlignment="Left" Margin="90,87,0,0" TextWrapping="Wrap" Text="10 Gb" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="LabelSoftOther" Content="{Binding Soft.Other}" ContentStringFormat="{}{0} Гб" HorizontalAlignment="Left" Margin="86,82,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
             </Grid>

@@ -60,10 +60,12 @@
     <Compile Include="Interfaces\Base\IGainComputer.cs" />
     <Compile Include="Interfaces\Base\IStates.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
+    <Compile Include="Models\Soft.cs" />
+    <Compile Include="Models\Base\SoftBase.cs" />
     <Compile Include="Models\Computer.cs" />
     <Compile Include="Models\Base\ComputerBase.cs" />
     <Compile Include="Models\Base\PlayerBase.cs" />
-    <Compile Include="Models\Compman.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="WinModels\MainWindowPanel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

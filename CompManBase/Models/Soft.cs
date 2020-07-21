@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CompManBase.Interfaces
+namespace CompManBase.Models
 {
-    interface IPlayer : IStates
+    public class Soft : SoftBase
     {
+        public Soft()
+        {
 
+        }
     }
 }

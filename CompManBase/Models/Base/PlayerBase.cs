@@ -1,10 +1,6 @@
 ﻿using CompManBase.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CompManBase.Models
 {
@@ -13,15 +9,11 @@ namespace CompManBase.Models
         private PlayerState _state;
         private int _score;
         private int _money;
-        private int _happy;
+        private float _happy;
 
-        public int Level => Convert.ToInt32(_state) + 1;
-
-        public ComputerBase Computer { get; set; }
 
         public PlayerBase()
         {
-            Computer = new Computer();
         }
         #region Свойства-зависимости
         public PlayerState State
@@ -31,9 +23,11 @@ namespace CompManBase.Models
             {
                 if (value == _state) return;
                 _state = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(State)));
+                Changed(nameof(State));
+                Changed(nameof(Level));
             }
         }
+        public int Level { get => Convert.ToInt32(_state) + 1; }
         public int Score
         {
             get => _score;
@@ -41,7 +35,7 @@ namespace CompManBase.Models
             {
                 if (value == _score) return;
                 _score = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Score)));
+                Changed(nameof(Score));
             }
         }
         public int Money
@@ -51,17 +45,17 @@ namespace CompManBase.Models
             {
                 if (value == _money) return;
                 _money = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Money)));
+                Changed(nameof(Money));
             }
         }
-        public int Happy
+        public float Happy
         {
             get => _happy;
             set
             {
                 if (value == _happy) return;
                 _happy = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Happy)));
+                Changed(nameof(Happy));
             }
         }
         #endregion

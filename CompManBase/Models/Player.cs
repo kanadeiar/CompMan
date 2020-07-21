@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace CompManBase.Models
 {
-    class Compman : PlayerBase
+    class Player : PlayerBase
     {
-        public Compman()
+        public Player()
         {
         }
     }

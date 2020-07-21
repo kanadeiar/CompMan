@@ -1,18 +1,12 @@
-﻿using CompManBase.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CompManBase.Interfaces
+﻿namespace CompManBase.Interfaces
 {
     interface IStates
     {
         PlayerState State { get; set; }
         int Score { get; set; }
         int Money { get; set; }
-        int Happy { get; set; }
+        float Happy { get; set; }
+        int Level { get; }
     }
     public enum PlayerState
     {
