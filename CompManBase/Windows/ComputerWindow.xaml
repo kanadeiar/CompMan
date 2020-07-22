@@ -27,7 +27,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <GroupBox Grid.Row="0" Header="Апгрейд платформы">
+            <GroupBox Grid.Row="0" Header="{Binding NextActionPlatform}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -44,7 +44,7 @@
                 </Grid>
             </GroupBox>
             <Button x:Name="ButtonBuyPlatform" Grid.Column="1" Grid.Row="0" Content="{Binding TextButtonBuyPlatform}" Click="ButtonBuyPlatform_Click" IsEnabled="{Binding MayBuyNextPlatform}" Margin="5"/>
-            <GroupBox Grid.Row="1" Header="Апгрейд оперативной памяти">
+            <GroupBox Grid.Row="1" Header="{Binding NextActionRam}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -61,7 +61,7 @@
                 </Grid>
             </GroupBox>
             <Button x:Name="ButtonBuyRam" Grid.Column="1" Grid.Row="1" Content="{Binding TextButtonBuyRam}" Click="ButtonBuyRam_Click" IsEnabled="{Binding MayBuyNextRam}" Margin="5"/>
-            <GroupBox Grid.Row="2" Header="Апгрейд жесткого диска">
+            <GroupBox Grid.Row="2" Header="{Binding NextActionHdd}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -78,7 +78,7 @@
                 </Grid>
             </GroupBox>
             <Button x:Name="ButtonBuyHdd" Grid.Column="1" Grid.Row="2" Content="{Binding TextButtonBuyHdd}" Click="ButtonBuyHdd_Click" IsEnabled="{Binding MayBuyNextHdd}" Margin="5"/>
-            <GroupBox Grid.Row="3" Header="Апгрейд видеокарты">
+            <GroupBox Grid.Row="3" Header="{Binding NextActionVideo}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -95,7 +95,7 @@
                 </Grid>
             </GroupBox>
             <Button x:Name="ButtonBuyVideo" Grid.Column="1" Grid.Row="3" Content="{Binding TextButtonBuyVideo}" Click="ButtonBuyVideo_Click" IsEnabled="{Binding MayBuyNextVideo}" Margin="5"/>
-            <GroupBox Grid.Row="4" Header="Апгрейд Интернет-провайдера">
+            <GroupBox Grid.Row="4" Header="{Binding NextActionInternet}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>

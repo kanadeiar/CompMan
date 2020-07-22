@@ -17,6 +17,17 @@ namespace CompManBase.Models
             _wallet = player;
         }
         #region Следующие по уровню компоненты
+        public string NextActionPlatform
+        {
+            get
+            {
+                if (Platform == 0)
+                    return "Покупка новой платформы";
+                if (Platform >= PlatformNames.Length - 1)
+                    return "У вас и так максимально мощная платформа";
+                return "Апгрейд платформы";
+            }
+        }
         public HardCpt NextPlatform => GetNextComponent(Platform, PlatformNames);
         public bool NextPlatformMayBuy => NextPlatform.Level != -1 && _wallet.MaySubsctact(NextPlatform.Cost);
         public void BuyPlatform()
@@ -25,6 +36,17 @@ namespace CompManBase.Models
                 return;
             _wallet.Substract(NextPlatform.Cost);
             Platform++;
+        }
+        public string NextActionRam
+        {
+            get
+            {
+                if (Ram == 0)
+                    return "Покупка новой оперативной памяти";
+                if (Ram >= RamNames.Length - 1)
+                    return "У вас и так максимальне количество ОЗУ";
+                return "Апгрейд оперативной памяти";
+            }
         }
         public HardCpt NextRam => GetNextComponent(Ram, RamNames);
         public bool NextRamMayBuy => NextRam.Level != -1 && _wallet.MaySubsctact(NextRam.Cost);
@@ -40,6 +62,17 @@ namespace CompManBase.Models
             _wallet.Substract(NextRam.Cost);
             Ram++;
         }
+        public string NextActionHdd
+        {
+            get
+            {
+                if (Hdd == 0)
+                    return "Покупка нового жесткого диска";
+                if (Hdd >= HddNames.Length - 1)
+                    return "У вас и так максимально мощный жесткий диск";
+                return "Апгрейд жесткого диска";
+            }
+        }
         public HardCpt NextHdd => GetNextComponent(Hdd, HddNames);
         public bool NextHddMayBuy => NextHdd.Level != -1 && _wallet.MaySubsctact(NextHdd.Cost);
         public void BuyHdd()
@@ -53,6 +86,17 @@ namespace CompManBase.Models
             }
             _wallet.Substract(NextHdd.Cost);
             Hdd++;
+        }
+        public string NextActionVideo
+        {
+            get
+            {
+                if (Video == 0)
+                    return "Покупка новой видеокарты";
+                if (Video >= VideoNames.Length - 1)
+                    return "У вас и так максимально мощная видеокарта";
+                return "Апгрейд видеокарты";
+            }
         }
         public HardCpt NextVideo => GetNextComponent(Video, VideoNames);
         public bool NextVideoMayBuy => NextVideo.Level != -1 && _wallet.MaySubsctact(NextVideo.Cost);
@@ -68,6 +112,17 @@ namespace CompManBase.Models
             _wallet.Substract(NextVideo.Cost);
             Video++;
         }
+        public string NextActionInternet
+        {
+            get
+            {
+                if (Internet == 0)
+                    return "Подключение к Интернету";
+                if (Internet >= InternetNames.Length - 1)
+                    return "У вас и так максимально скоростной Интернет";
+                return "Апгрейд подключения к Интернету";
+            }
+        }
         public HardCpt NextInternet => GetNextComponent(Internet, InternetNames);
         public bool NextInternetMayBuy => NextInternet.Level != -1 && _wallet.MaySubsctact(NextInternet.Cost);
         public void BuyInternet()
@@ -76,7 +131,7 @@ namespace CompManBase.Models
                 return;
             if (Platform < 1)
             {
-                MessageBox.Show("Для апгрейда интернет-провайдера требуется любая платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Для апгрейда Интернет-провайдера требуется купить любую платформу!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             _wallet.Substract(NextInternet.Cost);
