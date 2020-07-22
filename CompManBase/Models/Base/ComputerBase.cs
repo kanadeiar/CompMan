@@ -13,8 +13,8 @@ namespace CompManBase.Models
         private int _platform;
         private int _ram;
         private int _hdd;
-        private int _internet;
         private int _video;
+        private int _internet;
 
         public ComputerBase()
         {
@@ -27,8 +27,8 @@ namespace CompManBase.Models
                 case Components.Platform: return PlatformNames[_platform].Level;
                 case Components.Ram: return RamNames[_platform].Level;
                 case Components.Hdd: return HddNames[_platform].Level;
-                case Components.Internet: return InternetNames[_platform].Level;
                 case Components.Video: return VideoNames[_platform].Level;
+                case Components.Internet: return InternetNames[_platform].Level;
                 default: throw new InvalidEnumArgumentException("Неверный компонент компьютера!");
             }
         }
@@ -69,18 +69,6 @@ namespace CompManBase.Models
             }
         }
         public string HddName => HddNames[_hdd].Name;
-        public int Internet
-        {
-            get => _internet;
-            set
-            {
-                if (value == _internet) return;
-                _internet = value;
-                Changed(nameof(Internet));
-                Changed(nameof(InternetName));
-            }
-        }
-        public string InternetName => InternetNames[_internet].Name;
         public int Video
         {
             get => _video;
@@ -93,6 +81,18 @@ namespace CompManBase.Models
             }
         }
         public string VideoName => VideoNames[_video].Name;
+        public int Internet
+        {
+            get => _internet;
+            set
+            {
+                if (value == _internet) return;
+                _internet = value;
+                Changed(nameof(Internet));
+                Changed(nameof(InternetName));
+            }
+        }
+        public string InternetName => InternetNames[_internet].Name;
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -113,8 +113,8 @@ namespace CompManBase.Models
             Platform,
             Ram,
             Hdd,
+            Video,
             Internet,
-            Video
         }
         #region Данные
         public static HardCpt[] PlatformNames = new[]
@@ -147,6 +147,16 @@ namespace CompManBase.Models
             new HardCpt { Level = 5, Name ="2 Тб SSD Micron", Cost = 25000 },
             new HardCpt { Level = 6, Name ="6 Тб SSD Intel", Cost = 206000 },
         };
+        public static HardCpt[] VideoNames = new[]
+        {
+            new HardCpt { Level = 0, Name ="отсутствует", Cost = 0 },
+            new HardCpt { Level = 1, Name ="1Гб AFOX Radeon", Cost = 2100 },
+            new HardCpt { Level = 2, Name ="2 Гб Inno GT 1030", Cost = 5100 },
+            new HardCpt { Level = 3, Name ="4 Гб DDR4 ASUS ROG-STRIX-GTX1650S", Cost = 15800 },
+            new HardCpt { Level = 4, Name ="8 Гб GIGABYTE GV-R57XTGAMING", Cost = 35000 },
+            new HardCpt { Level = 5, Name ="11 Гб ASUS TURBO-RTX2080", Cost = 102000 },
+            new HardCpt { Level = 6, Name ="32 Гб Tesla V100", Cost = 733000 },
+        };
         public static HardCpt[] InternetNames = new[]
         {
             new HardCpt { Level = 0, Name ="отсутствует", Cost = 0 },
@@ -156,16 +166,6 @@ namespace CompManBase.Models
             new HardCpt { Level = 4, Name ="FTTB 10 Мб/с", Cost = 5000 },
             new HardCpt { Level = 5, Name ="xPON оптика 100 Мб/с", Cost = 50000 },
             new HardCpt { Level = 6, Name ="Спутниковый 1 Гб/с", Cost = 300000 },
-        };
-        public static HardCpt[] VideoNames = new[]
-{
-            new HardCpt { Level = 0, Name ="отсутствует", Cost = 0 },
-            new HardCpt { Level = 1, Name ="1Гб AFOX Radeon", Cost = 2100 },
-            new HardCpt { Level = 2, Name ="2 Гб Inno GT 1030", Cost = 5100 },
-            new HardCpt { Level = 3, Name ="4 Гб DDR4 ASUS ROG-STRIX-GTX1650S", Cost = 15800 },
-            new HardCpt { Level = 4, Name ="8 Гб GIGABYTE GV-R57XTGAMING", Cost = 35000 },
-            new HardCpt { Level = 5, Name ="11 Гб ASUS TURBO-RTX2080", Cost = 102000 },
-            new HardCpt { Level = 6, Name ="32 Гб Tesla V100", Cost = 733000 },
         };
         #endregion
     }

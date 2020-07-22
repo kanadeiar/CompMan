@@ -6,7 +6,7 @@ namespace CompManBase.WinModels
 {
     public class MainWindowPanel : INotifyPropertyChanged
     {
-        private string _title;
+        private string _title = "Компьютерщик";
         /// <summary> Игрок </summary>
         public PlayerBase Player { get; set; }
         /// <summary> Компьютер </summary>
@@ -22,7 +22,7 @@ namespace CompManBase.WinModels
                 Money = 9000000,
                 Happy = 99.899F,
             };
-            Computer = new Computer();
+            Computer = new Computer(Player);
             Soft = new Soft();
             
         }

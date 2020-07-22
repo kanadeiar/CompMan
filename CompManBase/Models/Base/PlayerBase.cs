@@ -15,6 +15,13 @@ namespace CompManBase.Models
         public PlayerBase()
         {
         }
+        /// <summary> Добавление денег </summary>
+        void IWallet.Add(int money) => Money += money;
+        /// <summary> Есть ли столько денег - можно ли их вычесть </summary>
+        bool IWallet.MaySubsctact(int money) => Money > money;
+        /// <summary> Вычитание денег </summary>
+        void IWallet.Substract(int money) => Money -= money;
+
         #region Свойства-зависимости
         public PlayerState State
         {
@@ -62,6 +69,9 @@ namespace CompManBase.Models
 
         
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+
         private void Changed(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

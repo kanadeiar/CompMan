@@ -1,4 +1,5 @@
 ﻿using CompManBase.Models;
+using CompManBase.Windows;
 using CompManBase.WinModels;
 using System.Windows;
 using System.Windows.Data;
@@ -39,6 +40,13 @@ namespace CompManBase
             //MessageBox.Show($"{_panel.Player.Level}");
             //_panel.Player.Computer.Platform = 1;
         }
+        private void ButtonComputer_Click(object sender, RoutedEventArgs e)
+        {
+            ComputerWindow window = new ComputerWindow(_panel.Computer);
+            window.ShowDialog();
+        }
         #endregion
+
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompManBase.Models
 {
-    class Player : PlayerBase
+    public class Player : PlayerBase
     {
         public Player()
         {

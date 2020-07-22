@@ -13,6 +13,7 @@ namespace CompManBase.Models
         private int _os;
         private int _develop;
         private int _antivirus;
+        private int _game;
         private int _browser;
         private int _other;
 
@@ -27,6 +28,7 @@ namespace CompManBase.Models
                 case Parts.Os: return OsNames[_os].Level;
                 case Parts.Develop: return DevelopNames[_develop].Level;
                 case Parts.Antivirus: return AntivirusNames[_antivirus].Level;
+                case Parts.Game: return GameNames[_game].Level;
                 case Parts.Browser: return BrowserNames[_browser].Level;
                 case Parts.Other: return Other;
                 default: throw new InvalidEnumArgumentException("Неверная часть софта компьютера!");
@@ -69,6 +71,18 @@ namespace CompManBase.Models
             }
         }
         public string AntivirusName => AntivirusNames[_antivirus].Name;
+        public int Game
+        {
+            get => _game;
+            set
+            {
+                if (value == _game) return;
+                _game = value;
+                Changed(nameof(Game));
+                Changed(nameof(GameName));
+            }
+        }
+        public string GameName => GameNames[_game].Name;
         public int Browser
         {
             get => _browser;
@@ -111,6 +125,7 @@ namespace CompManBase.Models
             Os,
             Develop,
             Antivirus,
+            Game,
             Browser,
             Other
         }
@@ -136,17 +151,27 @@ namespace CompManBase.Models
             new SoftPrt { Level = 6, Name ="ReSharper", Cost = 10000 },
         };
         public static SoftPrt[] AntivirusNames = new[]
-{
+        {
             new SoftPrt { Level = 0, Name ="отсутствует", Cost = 0 },
             new SoftPrt { Level = 1, Name ="Doctor Solomon Antivirus", Cost = 0 },
             new SoftPrt { Level = 2, Name ="Dr.Web", Cost = 0 },
             new SoftPrt { Level = 3, Name ="Norton", Cost = 0 },
             new SoftPrt { Level = 4, Name ="Avast", Cost = 0 },
             new SoftPrt { Level = 5, Name ="Comodo", Cost = 6000 },
-            new SoftPrt { Level = 6, Name ="Хакерский", Cost = -1 },
+            new SoftPrt { Level = 6, Name ="Хакерский", Cost = 900000 },
+        };
+        public static SoftPrt[] GameNames = new[]
+{
+            new SoftPrt { Level = 0, Name ="отсутствует", Cost = 0 },
+            new SoftPrt { Level = 1, Name ="Дальнобойщики", Cost = 1000 },
+            new SoftPrt { Level = 2, Name ="WarCraft 3", Cost = 1000 },
+            new SoftPrt { Level = 3, Name ="The Sims 4", Cost = 8000 },
+            new SoftPrt { Level = 4, Name ="Need For Speed Run", Cost = 9000 },
+            new SoftPrt { Level = 5, Name ="Grand Theft Auto 5", Cost = 10000 },
+            new SoftPrt { Level = 6, Name ="Battlefield 5", Cost = 12000 },
         };
         public static SoftPrt[] BrowserNames = new[]
-{
+        {
             new SoftPrt { Level = 0, Name ="отсутствует", Cost = 0 },
             new SoftPrt { Level = 1, Name ="Internet Explorer", Cost = 0 },
             new SoftPrt { Level = 2, Name ="Edge", Cost = 0 },
