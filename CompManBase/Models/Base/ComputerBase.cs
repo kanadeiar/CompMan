@@ -19,7 +19,6 @@ namespace CompManBase.Models
         public ComputerBase()
         {
         }
-        /// <summary> Получение уровня компонента компьютера </summary>
         int IInfoComputer.GetLevel(Components components)
         {
             switch (components)
@@ -104,8 +103,11 @@ namespace CompManBase.Models
         /////////////////////////////////////////////////////////////////////
         public struct HardCpt
         {
+            /// <summary> Уровень железа </summary>
             public int Level;
+            /// <summary> Название железа </summary>
             public string Name;
+            /// <summary> Стоимость железа </summary>
             public int Cost;
         }
         public enum Components

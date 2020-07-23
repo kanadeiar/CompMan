@@ -20,6 +20,7 @@ namespace CompManBase.WinModels
         }
 
         #region Свойства-зависимости
+
         public string NextActionPlatform => Computer.NextActionPlatform;
         public string NextPlatformName => Computer.NextPlatform.Name;
         public string NextPlatformCost => Computer.NextPlatform.Cost.ToString() + " рублей";
@@ -92,8 +93,6 @@ namespace CompManBase.WinModels
         }
 
         #endregion
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void Changed(string propertyName)

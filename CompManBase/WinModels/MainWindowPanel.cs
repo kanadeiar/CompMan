@@ -23,8 +23,7 @@ namespace CompManBase.WinModels
                 Happy = 99.899F,
             };
             Computer = new Computer(Player);
-            Soft = new Soft();
-            
+            Soft = new Soft(Player, Computer);
         }
 
         #region Свойства-зависимости
@@ -38,9 +37,6 @@ namespace CompManBase.WinModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
             }
         }
-
-
-
 
         #endregion
         public event PropertyChangedEventHandler PropertyChanged;

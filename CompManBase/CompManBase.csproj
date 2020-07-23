@@ -71,8 +71,12 @@
     <Compile Include="Windows\ComputerWindow.xaml.cs">
       <DependentUpon>ComputerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SoftWindow.xaml.cs">
+      <DependentUpon>SoftWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WinModels\ComputerWindowPanel.cs" />
     <Compile Include="WinModels\MainWindowPanel.cs" />
+    <Compile Include="WinModels\SoftWindowPanel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +90,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\ComputerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SoftWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

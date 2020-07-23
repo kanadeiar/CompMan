@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:CompManBase.Windows"
         xmlns:wm="clr-namespace:CompManBase.WinModels"
         mc:Ignorable="d"
-        Title="Покупка компьютера" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFD8FFBC">
+        Title="Апгрейд компьютера" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFD8FFBC">
     <Window.Resources>
-
     </Window.Resources>
     <Grid x:Name="ComputerWindowPanel">
         <Grid.ColumnDefinitions>
