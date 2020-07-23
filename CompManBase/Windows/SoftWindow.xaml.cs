@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CompManBase.Models;
+using CompManBase.WinModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,27 @@ namespace CompManBase.Windows
     /// </summary>
     public partial class SoftWindow : Window
     {
-        public SoftWindow()
+        private SoftWindowPanel _panel;
+        public SoftWindow(SoftBase soft)
         {
             InitializeComponent();
+            _panel = new SoftWindowPanel((Soft)soft);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            SoftWindowPanel.DataContext = _panel;
+        }
+        private void ButtonBuyOs_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.BuyOs();
+        }
 
+
+
+        private void ButtonClose_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

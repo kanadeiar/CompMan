@@ -67,6 +67,11 @@
                         <TextBlock x:Name="TextBlockInternet" Text="{Binding Computer.InternetName}" HorizontalAlignment="Left" Margin="90,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Апгрейд!" Click="ButtonComputer_Click"/>
+                    </ContextMenu>
+                </Grid.ContextMenu>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="160" Margin="10,264,0,0" VerticalAlignment="Top" Width="263" Background="#FFA8FBFB">
                 <GroupBox Header="Софт:">
@@ -85,6 +90,11 @@
                         <Label x:Name="LabelSoftOther" Content="{Binding Soft.Other}" ContentStringFormat="{}{0} Гб" HorizontalAlignment="Left" Margin="86,104,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Установка!" Click="ButtonSoft_Click"/>
+                    </ContextMenu>
+                </Grid.ContextMenu>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="49" Margin="289,10,0,0" VerticalAlignment="Top" Width="263" Background="#FFFFCBCB">
                 <GroupBox Header="Дата и время">
@@ -107,7 +117,7 @@
                 <GroupBox Header="Действия">
                     <StackPanel>
                         <Button x:Name="ButtonComputer" Click="ButtonComputer_Click" Content="Апгрейд компьютера" Margin="1"/>
-                        <Button x:Name="ButtonSoft" Content="Установка программ" Margin="1"/>
+                        <Button x:Name="ButtonSoft" Click="ButtonSoft_Click" Content="Установка программ" Margin="1"/>
                         <Button x:Name="ButtonWork" Content="Искать работу" Margin="1"/>
                         <Button x:Name="ButtonHappy" Content="Развлечься" Margin="1"/>
                         <Button x:Name="ButtonTorrents" Content="Торрент-трекер" Margin="1"/>

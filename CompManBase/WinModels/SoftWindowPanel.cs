@@ -12,17 +12,28 @@ namespace CompManBase.WinModels
     {
         /// <summary> Софт </summary>
         public Soft Soft { get; set; }
-        SoftWindowPanel() { }
-        SoftWindowPanel(Soft soft)
+        public SoftWindowPanel() { }
+        public SoftWindowPanel(Soft soft)
         {
             Soft = soft;
         }
 
         #region свойства - зависимости
 
-
-
-
+        public string NextActionOs => Soft.NextActionOs;
+        public string NextOsName => Soft.NextOs.Name;
+        public string NextOsCost => Soft.NextOs.Cost.ToString() + " рублей";
+        public bool MayBuyNextOs => Soft.NextOsMayBuy;
+        public string TextButtonBuyOs => Soft.NextOsMayBuy ? "Установить!" : "Облом.";
+        public void BuyOs()
+        {
+            Soft.BuyOs();
+            Changed(nameof(NextActionOs));
+            Changed(nameof(NextOsName));
+            Changed(nameof(NextOsCost));
+            Changed(nameof(MayBuyNextOs));
+            Changed(nameof(TextButtonBuyOs));
+        }
 
         #endregion
 

@@ -45,6 +45,13 @@ namespace CompManBase
             ComputerWindow window = new ComputerWindow(_panel.Computer);
             window.ShowDialog();
         }
+        private void ButtonSoft_Click(object sender, RoutedEventArgs e)
+        {
+            SoftWindow window = new SoftWindow(_panel.Soft);
+            window.ShowDialog();
+        }
+
+
         #endregion
 
 

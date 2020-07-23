@@ -24,10 +24,10 @@ namespace CompManBase.Models
             switch (components)
             {
                 case Components.Platform: return PlatformNames[_platform].Level;
-                case Components.Ram: return RamNames[_platform].Level;
-                case Components.Hdd: return HddNames[_platform].Level;
-                case Components.Video: return VideoNames[_platform].Level;
-                case Components.Internet: return InternetNames[_platform].Level;
+                case Components.Ram: return RamNames[_ram].Level;
+                case Components.Hdd: return HddNames[_hdd].Level;
+                case Components.Video: return VideoNames[_video].Level;
+                case Components.Internet: return InternetNames[_internet].Level;
                 default: throw new InvalidEnumArgumentException("Неверный компонент компьютера!");
             }
         }

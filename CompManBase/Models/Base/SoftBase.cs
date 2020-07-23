@@ -158,7 +158,7 @@ namespace CompManBase.Models
             new SoftPrt { Level = 3, Name ="Norton", Cost = 0 },
             new SoftPrt { Level = 4, Name ="Avast", Cost = 0 },
             new SoftPrt { Level = 5, Name ="Comodo", Cost = 6000 },
-            new SoftPrt { Level = 6, Name ="Хакерский", Cost = 900000 },
+            new SoftPrt { Level = 6, Name ="Хакерский", Cost = 90000 },
         };
         public static SoftPrt[] GameNames = new[]
 {

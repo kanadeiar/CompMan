@@ -10,6 +10,50 @@
     <Window.Resources>
     </Window.Resources>
     <Grid x:Name="SoftWindowPanel">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Row="0" Header="{Binding NextActionOs}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Text="ОС:"/>
+                    <TextBlock Grid.Column="1" Text="{Binding NextOsName}" FontWeight="Bold"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Цена:"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NextOsCost}" FontWeight="Bold"/>
+                </Grid>
+            </GroupBox>
+            <Button x:Name="ButtonBuyOs" Grid.Column="1" Grid.Row="0" Content="{Binding TextButtonBuyOs}" Click="ButtonBuyOs_Click" IsEnabled="{Binding MayBuyNextOs}" Margin="5"/>
+
+        </Grid>
+        <Grid Grid.Column="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="ButtonClose" Click="ButtonClose_Click" Grid.Row="1" Content="Закрыть"/>
+            <Image x:Name="ImageSoft" HorizontalAlignment="Left" Height="110" Margin="0,0,0,0" VerticalAlignment="Top" Width="110"/>
+        </Grid>
+
     </Grid>
 </Window>

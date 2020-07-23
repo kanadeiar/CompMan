@@ -92,13 +92,13 @@ namespace CompManBase.Models
 
 
 
-        /// <summary> Получение следующей по уровню платформы </summary>
-        private HardCpt GetNextComponent(int platform, HardCpt[] names)
+        /// <summary> Получение следующего по уровню компонента </summary>
+        private HardCpt GetNextComponent(int component, HardCpt[] names)
         {
-            if (platform <= names.Length - 2)
-                return names[platform + 1];
+            if (component <= names.Length - 2)
+                return names[component + 1];
             else
-                return new HardCpt { Level = -1, Name = "Улучшать больше некуда" };
+                return new HardCpt { Level = -1, Name = "Улучшать хард больше некуда" };
         }
         #endregion
 
@@ -116,7 +116,7 @@ namespace CompManBase.Models
                 return;
             if (Ram >= Platform)
             {
-                MessageBox.Show("Для апгрейда ОЗУ требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Для апгрейда ОЗУ {RamName} до {NextRam.Name} требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             _wallet.Substract(NextRam.Cost);
@@ -128,7 +128,7 @@ namespace CompManBase.Models
                 return;
             if (Hdd >= Platform)
             {
-                MessageBox.Show("Для апгрейда жесткого диска требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Для апгрейда жесткого диска {HddName} до {NextHdd.Name} требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             _wallet.Substract(NextHdd.Cost);
@@ -140,7 +140,7 @@ namespace CompManBase.Models
                 return;
             if (Video >= Platform)
             {
-                MessageBox.Show("Для апгрейда видеокарты требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Для апгрейда видеокарты {VideoName} до {NextVideo.Name} требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             _wallet.Substract(NextVideo.Cost);
@@ -152,7 +152,7 @@ namespace CompManBase.Models
                 return;
             if (Platform < 1)
             {
-                MessageBox.Show("Для апгрейда Интернет-провайдера требуется купить любую платформу!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Для апгрейда Интернет-провайдера {InternetName} до {NextInternet.Name} требуется купить любую платформу!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             _wallet.Substract(NextInternet.Cost);
