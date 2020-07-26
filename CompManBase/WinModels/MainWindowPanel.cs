@@ -19,7 +19,6 @@ namespace CompManBase.WinModels
         /// <summary> Часы игровые - таймер </summary>
         public DateTimerBase Timer { get; set; }
 
-        
 
         public MainWindowPanel()
         {
@@ -49,6 +48,7 @@ namespace CompManBase.WinModels
         }
 
         #endregion
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

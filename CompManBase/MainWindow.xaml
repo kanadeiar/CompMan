@@ -9,7 +9,7 @@
         xmlns:i="clr-namespace:CompManBase.Interfaces"
         xmlns:c="clr-namespace:CompManBase.Converters"
         mc:Ignorable="d"
-        Title="Компьютерщик" Height="480" Width="580" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="Компьютерщик" Height="500" Width="580" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Window.Resources>
         <wm:MainWindowPanel x:Key="_sample">
             <wm:MainWindowPanel.Player>

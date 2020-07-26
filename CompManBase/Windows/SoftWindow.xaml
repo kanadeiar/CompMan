@@ -136,7 +136,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Button x:Name="ButtonClose" Click="ButtonClose_Click" Grid.Row="1" Content="Закрыть"/>
-            <Image x:Name="ImageSoft" HorizontalAlignment="Left" Height="110" Margin="0,0,0,0" VerticalAlignment="Top" Width="110"/>
+            <Image x:Name="ImageSoft" HorizontalAlignment="Left" Height="110" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" Source="/CompManBase;component/Images/Soft.png"/>
         </Grid>
 
     </Grid>
