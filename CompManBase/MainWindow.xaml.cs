@@ -52,6 +52,16 @@ namespace CompManBase
             window.Owner = Window.GetWindow(this);
             window.ShowDialog();
         }
+        private void ButtonWork_Click(object sender, RoutedEventArgs e)
+        {
+            WorkWindow window = new WorkWindow(_panel.Work);
+            window.Owner = Window.GetWindow(this);
+            window.ShowDialog();
+        }
+
+
+
+
         #endregion
 
 

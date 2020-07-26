@@ -58,7 +58,5 @@ namespace CompManBase.Windows
         {
             DialogResult = false;
         }
-
-
     }
 }
