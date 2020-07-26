@@ -99,9 +99,9 @@
             <Grid HorizontalAlignment="Left" Height="49" Margin="289,10,0,0" VerticalAlignment="Top" Width="263" Background="#FFFFCBCB">
                 <GroupBox Header="Дата и время">
                     <Grid>
-                        <TextBlock x:Name="TextBlockDate" HorizontalAlignment="Left" Margin="12,4,0,0" TextWrapping="Wrap" Text="31.01.2020" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <TextBlock x:Name="TextBlockTime" HorizontalAlignment="Left" Margin="116,4,0,0" TextWrapping="Wrap" Text="23:00" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <Button x:Name="ButtonPause" Content="Пауза" HorizontalAlignment="Left" Margin="175,2,0,0" VerticalAlignment="Top" Width="74" FontSize="12" Click="ButtonPause_Click"/>
+                        <TextBlock x:Name="TextBlockDate" Text="{Binding Timer.MyDateString}"  HorizontalAlignment="Left" Margin="12,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock x:Name="TextBlockTime" Text="{Binding Timer.MyTimeString}"  HorizontalAlignment="Left" Margin="103,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <Button x:Name="ButtonPause" Content="{Binding Timer.TextOnButton}" HorizontalAlignment="Left" Margin="158,2,0,0" VerticalAlignment="Top" Width="91" FontSize="12" Click="ButtonPause_Click"/>
                     </Grid>
                 </GroupBox>
             </Grid>

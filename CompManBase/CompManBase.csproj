@@ -62,6 +62,9 @@
     <Compile Include="Interfaces\Base\IInfoComputer.cs" />
     <Compile Include="Interfaces\Base\IInfoSoft.cs" />
     <Compile Include="Interfaces\Base\IWallet.cs" />
+    <Compile Include="Models\Base\DateTimerBase.cs" />
+    <Compile Include="Interfaces\Base\IDateTimerEvent.cs" />
+    <Compile Include="Models\DateTimer.cs" />
     <Compile Include="Models\Soft.cs" />
     <Compile Include="Models\Base\SoftBase.cs" />
     <Compile Include="Models\Computer.cs" />

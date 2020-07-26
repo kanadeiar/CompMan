@@ -1,6 +1,8 @@
 ﻿using CompManBase.Models;
 using CompManBase.Interfaces;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Windows;
 
 namespace CompManBase.WinModels
 {
@@ -14,6 +16,11 @@ namespace CompManBase.WinModels
         /// <summary> Софт на компьютере </summary>
         public SoftBase Soft { get; set; }
 
+        /// <summary> Часы игровые - таймер </summary>
+        public DateTimerBase Timer { get; set; }
+
+        
+
         public MainWindowPanel()
         {
             Player = new Player
@@ -24,6 +31,9 @@ namespace CompManBase.WinModels
             };
             Computer = new Computer(Player);
             Soft = new Soft(Player, Computer);
+
+            Timer = new DateTimer();
+            
         }
 
         #region Свойства-зависимости
