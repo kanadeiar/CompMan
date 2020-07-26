@@ -52,7 +52,7 @@
                     </Grid>
                 </GroupBox>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="130" Margin="10,129,0,0" VerticalAlignment="Top" Width="263" Background="#FFFFFF7D">
+            <Grid HorizontalAlignment="Left" Height="140" Margin="10,129,0,0" VerticalAlignment="Top" Width="263" Background="#FFFFFF7D">
                 <GroupBox Header="Хард:">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Платформа:" VerticalAlignment="Top"/>
@@ -63,8 +63,8 @@
                         <TextBlock x:Name="TextBlockHdd" Text="{Binding Computer.HddName}" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Видеокарта:" VerticalAlignment="Top"/>
                         <TextBlock x:Name="TextBlockVideo" Text="{Binding Computer.VideoName}" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="10,87,0,0" TextWrapping="Wrap" Text="Интернет:" VerticalAlignment="Top"/>
-                        <TextBlock x:Name="TextBlockInternet" Text="{Binding Computer.InternetName}" HorizontalAlignment="Left" Margin="90,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" TextWrapping="Wrap" Text="Интернет:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockInternet" Text="{Binding Computer.InternetName}" HorizontalAlignment="Left" Margin="90,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
                 <Grid.ContextMenu>
@@ -73,7 +73,7 @@
                     </ContextMenu>
                 </Grid.ContextMenu>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="160" Margin="10,264,0,0" VerticalAlignment="Top" Width="263" Background="#FFA8FBFB">
+            <Grid HorizontalAlignment="Left" Height="150" Margin="10,274,0,0" VerticalAlignment="Top" Width="263" Background="#FFA8FBFB">
                 <GroupBox Header="Софт:">
                     <Grid>
                         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Система:" VerticalAlignment="Top"/>
@@ -100,8 +100,8 @@
                 <GroupBox Header="Дата и время">
                     <Grid>
                         <TextBlock x:Name="TextBlockDate" HorizontalAlignment="Left" Margin="12,4,0,0" TextWrapping="Wrap" Text="31.01.2020" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <TextBlock x:Name="TextBlockTime" HorizontalAlignment="Left" Margin="104,4,0,0" TextWrapping="Wrap" Text="23:00" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                        <Button x:Name="ButtonPause" Content="Пауза" HorizontalAlignment="Left" Margin="154,2,0,0" VerticalAlignment="Top" Width="55" FontSize="12" Click="ButtonPause_Click"/>
+                        <TextBlock x:Name="TextBlockTime" HorizontalAlignment="Left" Margin="116,4,0,0" TextWrapping="Wrap" Text="23:00" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <Button x:Name="ButtonPause" Content="Пауза" HorizontalAlignment="Left" Margin="175,2,0,0" VerticalAlignment="Top" Width="74" FontSize="12" Click="ButtonPause_Click"/>
                     </Grid>
                 </GroupBox>
             </Grid>

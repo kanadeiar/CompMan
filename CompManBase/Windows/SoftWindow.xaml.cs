@@ -34,14 +34,30 @@ namespace CompManBase.Windows
         }
         private void ButtonBuyOs_Click(object sender, RoutedEventArgs e)
         {
-            _panel.BuyOs();
+            _panel.BuyOsAsync();
         }
-
-
+        private void ButtonBuyDevelop_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.BuyDevelopAsync();
+        }
+        private void ButtonBuyAntivirus_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.BuyAntivirusAsync();
+        }
+        private void ButtonBuyGame_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.BuyGameAsync();
+        }
+        private void ButtonBuyBrowser_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.BuyBrowserAsync();
+        }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
+
+
     }
 }

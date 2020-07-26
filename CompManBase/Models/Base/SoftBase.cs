@@ -108,7 +108,7 @@ namespace CompManBase.Models
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void Changed(string propertyName)
+        protected void Changed(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -168,7 +168,7 @@ namespace CompManBase.Models
             new SoftPrt { Level = 3, Name ="The Sims 4", Cost = 8000 },
             new SoftPrt { Level = 4, Name ="Need For Speed Run", Cost = 9000 },
             new SoftPrt { Level = 5, Name ="Grand Theft Auto 5", Cost = 10000 },
-            new SoftPrt { Level = 6, Name ="Battlefield 5", Cost = 12000 },
+            new SoftPrt { Level = 6, Name ="Horizon Zero Dawn", Cost = 12000 },
         };
         public static SoftPrt[] BrowserNames = new[]
         {

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CompManBase.Windows"
         xmlns:wm="clr-namespace:CompManBase.WinModels"
         mc:Ignorable="d"
-        Title="Апгрейд компьютера" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFFFFBA0">
+        Title="Апгрейд компьютера" Height="350" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFFFFF7D">
     <Window.Resources>
     </Window.Resources>
     <Grid x:Name="ComputerWindowPanel">

@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:CompManBase.Windows"
         xmlns:wm="clr-namespace:CompManBase.WinModels"
         mc:Ignorable="d"
-        Title="Установка программ" Height="450" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFBCFFF6">
+        Title="Установка программ" Height="450" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFBCFFF6">
     <Window.Resources>
     </Window.Resources>
     <Grid x:Name="SoftWindowPanel">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3.5*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Margin="5">
@@ -44,6 +44,90 @@
                 </Grid>
             </GroupBox>
             <Button x:Name="ButtonBuyOs" Grid.Column="1" Grid.Row="0" Content="{Binding TextButtonBuyOs}" Click="ButtonBuyOs_Click" IsEnabled="{Binding MayBuyNextOs}" Margin="5"/>
+            <GroupBox Grid.Row="1" Header="{Binding NextActionDevelop}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Text="Разработка ПО:"/>
+                    <TextBlock Grid.Column="1" Text="{Binding NextDevelopName}" FontWeight="Bold"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Цена:"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NextDevelopCost}" FontWeight="Bold"/>
+                </Grid>
+            </GroupBox>
+            <Button x:Name="ButtonBuyDevelop" Grid.Column="1" Grid.Row="1" Content="{Binding TextButtonBuyDevelop}" Click="ButtonBuyDevelop_Click" IsEnabled="{Binding MayBuyNextDevelop}" Margin="5"/>
+            <GroupBox Grid.Row="2" Header="{Binding NextActionAntivirus}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Text="Антивирус:"/>
+                    <TextBlock Grid.Column="1" Text="{Binding NextAntivirusName}" FontWeight="Bold"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Цена:"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NextAntivirusCost}" FontWeight="Bold"/>
+                </Grid>
+            </GroupBox>
+            <Button x:Name="ButtonBuyAntivirus" Grid.Column="1" Grid.Row="2" Content="{Binding TextButtonBuyAntivirus}" Click="ButtonBuyAntivirus_Click" IsEnabled="{Binding MayBuyNextAntivirus}" Margin="5"/>
+            <GroupBox Grid.Row="3" Header="{Binding NextActionGame}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Text="Комп. игра:"/>
+                    <TextBlock Grid.Column="1" Text="{Binding NextGameName}" FontWeight="Bold"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Цена:"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NextGameCost}" FontWeight="Bold"/>
+                </Grid>
+            </GroupBox>
+            <Button x:Name="ButtonBuyGame" Grid.Column="1" Grid.Row="3" Content="{Binding TextButtonBuyGame}" Click="ButtonBuyGame_Click" IsEnabled="{Binding MayBuyNextGame}" Margin="5"/>
+            <GroupBox Grid.Row="4" Header="{Binding NextActionBrowser}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Text="Браузер:"/>
+                    <TextBlock Grid.Column="1" Text="{Binding NextBrowserName}" FontWeight="Bold"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Цена:"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding NextBrowserCost}" FontWeight="Bold"/>
+                </Grid>
+            </GroupBox>
+            <Button x:Name="ButtonBuyBrowser" Grid.Column="1" Grid.Row="4" Content="{Binding TextButtonBuyBrowser}" Click="ButtonBuyBrowser_Click" IsEnabled="{Binding MayBuyNextBrowser}" Margin="5"/>
+
+
+
+
+            <GroupBox Grid.Row="5" Header="Процесс установки программы">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Прогресс установки:"/>
+                    <ProgressBar Grid.Row="1" Margin="5" Minimum="0" Maximum="100" Value="{Binding Soft.InstallProgress}"/>
+                    <Label Grid.Row="1" Content="{Binding Soft.InstallProgress}" ContentStringFormat="{}{0} %" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold"/>
+
+                </Grid>
+            </GroupBox>
 
         </Grid>
         <Grid Grid.Column="1" Margin="5">
