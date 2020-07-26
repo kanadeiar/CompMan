@@ -12,7 +12,6 @@ namespace CompManBase.Models
     {
         private IWallet _wallet; //кошелек игрока
         /// <summary> Конструктор с кошелем игрока </summary>
-        /// <param name="wallet">Кошель игрока</param>
         public Computer(IWallet wallet)
         {
             _wallet = wallet;

@@ -14,5 +14,11 @@ namespace CompManBase.Models
             _dateTime = startDateTime = new DateTime(2020, 01, 01, 00, 00, 00);
             
         }
+        /// <summary> Пауза / пуск таймера </summary>
+        public void PauseStart()
+        {
+            _timer.IsEnabled = !_timer.IsEnabled;
+            Changed(nameof(TextOnButton));
+        }
     }
 }

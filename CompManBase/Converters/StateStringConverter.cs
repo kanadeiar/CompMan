@@ -23,9 +23,9 @@ namespace CompManBase.Converters
                 case PlayerState.User:
                     return "Юзер";
                 case PlayerState.Programmer:
-                    return "Программист";
+                    return "Сисадмин";
                 case PlayerState.Sysadmin:
-                    return "Систадмин";
+                    return "Программист";
                 case PlayerState.Hacker:
                     return "Хакер";
                 default:

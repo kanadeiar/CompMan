@@ -24,27 +24,23 @@ namespace CompManBase.Models
         public DateTimerBase()
         {
             _timer = new DispatcherTimer();
-            _timer.Interval = new TimeSpan(0, 0, 1);
+            _timer.Interval = new TimeSpan(0, 0, 0, 0, 300);
             _timer.Tick += TimerTick;
             _timer.Start();
         }
+
         /// <summary> Тик таймера </summary>
         private void TimerTick(object sender, EventArgs e)
         {
             if (_dateTime.Hour == 0 && _dateTime != startDateTime)
                 NextDayEvent?.Invoke(this, new EventArgs());
-            if (_dateTime.Day == 1 && _dateTime != startDateTime)
+            if (_dateTime.Day == 1 && _dateTime.Hour == 0 && _dateTime != startDateTime)
                 NextMounthEvent?.Invoke(this, new EventArgs());
             _dateTime = _dateTime.AddHours(1);
             Changed(nameof(MyDateString));
             Changed(nameof(MyTimeString));
         }
-        /// <summary> Пауза / пуск таймера </summary>
-        public void PauseStart()
-        {
-            _timer.IsEnabled = !_timer.IsEnabled;
-            Changed(nameof(TextOnButton));
-        }
+
 
         #region Свойства-зависимости
         public string MyDateString
@@ -66,5 +62,7 @@ namespace CompManBase.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+
     }
 }

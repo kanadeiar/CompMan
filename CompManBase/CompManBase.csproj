@@ -64,6 +64,7 @@
     <Compile Include="Interfaces\Base\IWallet.cs" />
     <Compile Include="Models\Base\DateTimerBase.cs" />
     <Compile Include="Interfaces\Base\IDateTimerEvent.cs" />
+    <Compile Include="Models\Base\WorkBase.cs" />
     <Compile Include="Models\DateTimer.cs" />
     <Compile Include="Models\Soft.cs" />
     <Compile Include="Models\Base\SoftBase.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Models\Base\ComputerBase.cs" />
     <Compile Include="Models\Base\PlayerBase.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Work.cs" />
     <Compile Include="Windows\ComputerWindow.xaml.cs">
       <DependentUpon>ComputerWindow.xaml</DependentUpon>
     </Compile>

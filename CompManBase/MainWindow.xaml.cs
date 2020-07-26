@@ -22,6 +22,7 @@ namespace CompManBase
             WindowTitleBinding();
         }
 
+
         ///////////////////////////////////////////////////////////////////////////
 
         private void WindowTitleBinding()
@@ -37,7 +38,7 @@ namespace CompManBase
         #region Обработчики событий
         private void ButtonPause_Click(object sender, RoutedEventArgs e)
         {
-           _panel.Timer.PauseStart();
+           ((DateTimer)_panel.Timer).PauseStart();
         }
         private void ButtonComputer_Click(object sender, RoutedEventArgs e)
         {
@@ -52,5 +53,7 @@ namespace CompManBase
             window.ShowDialog();
         }
         #endregion
+
+
     }
 }

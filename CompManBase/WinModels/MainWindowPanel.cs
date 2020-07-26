@@ -3,6 +3,7 @@ using CompManBase.Interfaces;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
+using System;
 
 namespace CompManBase.WinModels
 {
@@ -18,22 +19,26 @@ namespace CompManBase.WinModels
 
         /// <summary> Часы игровые - таймер </summary>
         public DateTimerBase Timer { get; set; }
-
+        /// <summary> Работа игрока </summary>
+        public WorkBase Work { get; set; }
 
         public MainWindowPanel()
         {
-            Player = new Player
+            Timer = new DateTimer();
+            Player = new Player(Timer)
             {
                 State = PlayerState.Teapot,
                 Money = 9000000,
-                Happy = 99.899F,
+                Happy = 100,
             };
             Computer = new Computer(Player);
             Soft = new Soft(Player, Computer);
 
-            Timer = new DateTimer();
-            
+
+            Work = new Work(Timer, Player);
+            Work.Work = 1;
         }
+
 
         #region Свойства-зависимости
         public string Title
@@ -50,5 +55,7 @@ namespace CompManBase.WinModels
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+
     }
 }

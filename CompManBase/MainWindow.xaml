@@ -9,12 +9,10 @@
         xmlns:i="clr-namespace:CompManBase.Interfaces"
         xmlns:c="clr-namespace:CompManBase.Converters"
         mc:Ignorable="d"
-        Title="Компьютерщик" Height="500" Width="580" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="Компьютерщик" Height="500" Width="580" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Window.Resources>
         <wm:MainWindowPanel x:Key="_sample">
-            <wm:MainWindowPanel.Player>
-                <m:Player State="Teapot" Money="999" Happy="50.545"/>
-            </wm:MainWindowPanel.Player>
+
         </wm:MainWindowPanel>
         <c:StateStringConverter x:Key="StateStringConcerter"/>
         <c:HappyStringConverter x:Key="HappyStringConverter"/>
@@ -108,8 +106,8 @@
             <Grid HorizontalAlignment="Left" Height="60" Margin="289,64,0,0" VerticalAlignment="Top" Width="263" Background="#FFF7B8F2">
                 <GroupBox Header="Работа">
                     <Grid>
-                        <TextBlock x:Name="TextBlockWork" HorizontalAlignment="Left" Margin="5,2,0,0" TextWrapping="Wrap" Text="Дворник" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <TextBlock x:Name="TextBlockSalary" HorizontalAlignment="Left" Margin="5,20,0,0" TextWrapping="Wrap" Text="1000 рублей/день" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockWork" Text="{Binding Work.WorkName}" HorizontalAlignment="Left" Margin="5,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <Label x:Name="TextBlockSalary" Content="{Binding Work.Salary}" ContentStringFormat="{}{0} руб./день" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
             </Grid>
@@ -118,7 +116,7 @@
                     <StackPanel>
                         <Button x:Name="ButtonComputer" Click="ButtonComputer_Click" Content="Апгрейд компьютера" Margin="1"/>
                         <Button x:Name="ButtonSoft" Click="ButtonSoft_Click" Content="Установка программ" Margin="1"/>
-                        <Button x:Name="ButtonWork" Content="Искать работу" Margin="1"/>
+                        <Button x:Name="ButtonWork" Content="Искать новую работу" Margin="1"/>
                         <Button x:Name="ButtonHappy" Content="Развлечься" Margin="1"/>
                         <Button x:Name="ButtonTorrents" Content="Торрент-трекер" Margin="1"/>
                         <Button x:Name="ButtonForums" Content="Интернет-форум" Margin="1"/>
