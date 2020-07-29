@@ -39,11 +39,11 @@ namespace CompManBase.Models
         public struct WorkType
         {
             /// <summary> Уровень работы </summary>
-            public int Level;
+            public int Level { get; set; }
             /// <summary> Название работы </summary>
-            public string Name;
+            public string Name { get; set; }
             /// <summary> Зарплата этой работы в день </summary>
-            public int Salary;
+            public int Salary { get; set; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -61,7 +61,7 @@ namespace CompManBase.Models
             new WorkType { Level = 3, Name ="Сисадмин", Salary = 1_500 },
             new WorkType { Level = 4, Name ="Джун Программист PHP", Salary = 2_000 },
             new WorkType { Level = 5, Name ="Синер Программист С#", Salary = 5_000 },
-            new WorkType { Level = 5, Name ="Хакер-Прораммист C#", Salary = 10_000 },
+            new WorkType { Level = 5, Name ="Хакер-Прораммист C++", Salary = 10_000 },
         };
         #endregion
     }

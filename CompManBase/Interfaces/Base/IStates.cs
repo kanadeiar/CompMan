@@ -1,6 +1,6 @@
 ﻿namespace CompManBase.Interfaces
 {
-    interface IStates
+    public interface IStates
     {
         PlayerState State { get; set; }
         int Score { get; set; }
@@ -13,8 +13,8 @@
         Teapot,
         Lamer,
         User,
-        Programmer,
         Sysadmin,
+        Programmer,
         Hacker
     }
 }

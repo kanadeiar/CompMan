@@ -110,6 +110,11 @@
                         <Label x:Name="TextBlockSalary" Content="{Binding Work.Salary}" ContentStringFormat="{}{0} руб./день" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Сменить работу" Click="ButtonWork_Click"/>
+                    </ContextMenu>
+                </Grid.ContextMenu>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="202" Margin="289,129,0,0" VerticalAlignment="Top" Width="263" Background="#FFC2D5FF">
                 <GroupBox Header="Действия">

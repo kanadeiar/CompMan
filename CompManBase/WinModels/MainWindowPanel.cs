@@ -35,8 +35,8 @@ namespace CompManBase.WinModels
             Soft = new Soft(Player, Computer);
 
 
-            Work = new Work(Timer, Player);
-            Work.Work = 1;
+            Work = new Work(Timer, Player, Player);
+            Work.Work = 0;
         }
 
 

@@ -22,9 +22,9 @@ namespace CompManBase.Converters
                     return "Ламер";
                 case PlayerState.User:
                     return "Юзер";
-                case PlayerState.Programmer:
-                    return "Сисадмин";
                 case PlayerState.Sysadmin:
+                    return "Сисадмин";
+                case PlayerState.Programmer:
                     return "Программист";
                 case PlayerState.Hacker:
                     return "Хакер";
