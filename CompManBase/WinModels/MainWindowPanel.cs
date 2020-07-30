@@ -21,6 +21,8 @@ namespace CompManBase.WinModels
         public DateTimerBase Timer { get; set; }
         /// <summary> Работа игрока </summary>
         public WorkBase Work { get; set; }
+        /// <summary> Развлечения игрока </summary>
+        public HappyBase Happy { get; set; }
 
         public MainWindowPanel()
         {
@@ -28,15 +30,14 @@ namespace CompManBase.WinModels
             Player = new Player(Timer)
             {
                 State = PlayerState.Teapot,
-                Money = 9000000,
+                Money = 9000,
                 Happy = 100,
             };
             Computer = new Computer(Player);
             Soft = new Soft(Player, Computer);
-
-
             Work = new Work(Timer, Player, Player);
             Work.Work = 0;
+            Happy = new Happy(Player, Soft);
         }
 
 

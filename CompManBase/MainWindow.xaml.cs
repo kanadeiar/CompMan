@@ -58,6 +58,12 @@ namespace CompManBase
             window.Owner = Window.GetWindow(this);
             window.ShowDialog();
         }
+        private void ButtonHappy_Click(object sender, RoutedEventArgs e)
+        {
+            HappyWindow window = new HappyWindow(_panel.Happy);
+            window.Owner = Window.GetWindow(this);
+            window.ShowDialog();
+        }
 
 
 

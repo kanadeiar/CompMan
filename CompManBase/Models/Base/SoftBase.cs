@@ -133,7 +133,7 @@ namespace CompManBase.Models
         public static SoftPrt[] OsNames = new[]
         {
             new SoftPrt { Level = 0, Name ="отсутствует", Cost = 0 },
-            new SoftPrt { Level = 1, Name ="Windows 95", Cost = 0 },
+            new SoftPrt { Level = 1, Name ="Windows 95", Cost = 500 },
             new SoftPrt { Level = 2, Name ="Windows XP", Cost = 2000 },
             new SoftPrt { Level = 3, Name ="Windows 7", Cost = 5000 },
             new SoftPrt { Level = 4, Name ="Windows 8.1", Cost = 8000 },
@@ -144,19 +144,19 @@ namespace CompManBase.Models
         {
             new SoftPrt { Level = 0, Name ="отсутствует", Cost = 0 },
             new SoftPrt { Level = 1, Name ="QBasic", Cost = 0 },
-            new SoftPrt { Level = 2, Name ="Delphi 7", Cost = 0 },
+            new SoftPrt { Level = 2, Name ="Delphi 7", Cost = 500 },
             new SoftPrt { Level = 3, Name ="Eclipse", Cost = 0 },
             new SoftPrt { Level = 4, Name ="Intellij IDEA", Cost = 0 },
             new SoftPrt { Level = 5, Name ="VisualStudio", Cost = 30000 },
-            new SoftPrt { Level = 6, Name ="ReSharper", Cost = 10000 },
+            new SoftPrt { Level = 6, Name ="ReSharper", Cost = 50000 },
         };
         public static SoftPrt[] AntivirusNames = new[]
         {
             new SoftPrt { Level = 0, Name ="отсутствует", Cost = 0 },
             new SoftPrt { Level = 1, Name ="Doctor Solomon Antivirus", Cost = 0 },
-            new SoftPrt { Level = 2, Name ="Dr.Web", Cost = 0 },
-            new SoftPrt { Level = 3, Name ="Norton", Cost = 0 },
-            new SoftPrt { Level = 4, Name ="Avast", Cost = 0 },
+            new SoftPrt { Level = 2, Name ="Dr.Web", Cost = 500 },
+            new SoftPrt { Level = 3, Name ="Касперский", Cost = 2000 },
+            new SoftPrt { Level = 4, Name ="Avast", Cost = 1000 },
             new SoftPrt { Level = 5, Name ="Comodo", Cost = 6000 },
             new SoftPrt { Level = 6, Name ="Хакерский", Cost = 90000 },
         };
@@ -177,8 +177,8 @@ namespace CompManBase.Models
             new SoftPrt { Level = 2, Name ="Edge", Cost = 0 },
             new SoftPrt { Level = 3, Name ="Opera", Cost = 0 },
             new SoftPrt { Level = 4, Name ="Comodo", Cost = 0 },
-            new SoftPrt { Level = 5, Name ="Firefox", Cost = 30000 },
-            new SoftPrt { Level = 6, Name ="Chrome", Cost = 10000 },
+            new SoftPrt { Level = 5, Name ="Firefox", Cost = 0 },
+            new SoftPrt { Level = 6, Name ="Chrome", Cost = 0 },
         };
         #endregion
     }

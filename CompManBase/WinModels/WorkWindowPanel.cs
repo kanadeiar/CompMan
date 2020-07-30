@@ -22,7 +22,6 @@ namespace CompManBase.WinModels
         {
             Work = work;
             WorkNames = WorkBase.WorkNames.ToList();
-
         }
 
         #region Свойства-зависимости

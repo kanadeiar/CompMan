@@ -18,7 +18,7 @@ namespace CompManBase.Models
         /// <summary> Добавление денег </summary>
         void IWallet.Add(int money) => Money += money;
         /// <summary> Есть ли столько денег - можно ли их вычесть </summary>
-        bool IWallet.MaySubsctact(int money) => Money > money;
+        bool IWallet.MaySubsctact(int money) => Money >= money;
         /// <summary> Вычитание денег </summary>
         void IWallet.Substract(int money) => Money -= money;
 

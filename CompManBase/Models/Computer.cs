@@ -31,7 +31,7 @@ namespace CompManBase.Models
             }
         }
         public HardCpt NextPlatform => GetNextComponent(Platform, PlatformNames);
-        public bool NextPlatformMayBuy => NextPlatform.Level != -1 && _wallet.MaySubsctact(NextPlatform.Cost);
+        public bool NextPlatformMayBuy => NextPlatform.Level != -1;
 
         public string NextActionRam
         {
@@ -45,7 +45,7 @@ namespace CompManBase.Models
             }
         }
         public HardCpt NextRam => GetNextComponent(Ram, RamNames);
-        public bool NextRamMayBuy => NextRam.Level != -1 && _wallet.MaySubsctact(NextRam.Cost);
+        public bool NextRamMayBuy => NextRam.Level != -1;
 
         public string NextActionHdd
         {
@@ -59,7 +59,7 @@ namespace CompManBase.Models
             }
         }
         public HardCpt NextHdd => GetNextComponent(Hdd, HddNames);
-        public bool NextHddMayBuy => NextHdd.Level != -1 && _wallet.MaySubsctact(NextHdd.Cost);
+        public bool NextHddMayBuy => NextHdd.Level != -1;
 
         public string NextActionVideo
         {
@@ -73,7 +73,7 @@ namespace CompManBase.Models
             }
         }
         public HardCpt NextVideo => GetNextComponent(Video, VideoNames);
-        public bool NextVideoMayBuy => NextVideo.Level != -1 && _wallet.MaySubsctact(NextVideo.Cost);
+        public bool NextVideoMayBuy => NextVideo.Level != -1;
 
         public string NextActionInternet
         {
@@ -87,7 +87,7 @@ namespace CompManBase.Models
             }
         }
         public HardCpt NextInternet => GetNextComponent(Internet, InternetNames);
-        public bool NextInternetMayBuy => NextInternet.Level != -1 && _wallet.MaySubsctact(NextInternet.Cost);
+        public bool NextInternetMayBuy => NextInternet.Level != -1;
 
 
 
@@ -106,6 +106,11 @@ namespace CompManBase.Models
         {
             if (Platform >= PlatformNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextPlatform.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             _wallet.Substract(NextPlatform.Cost);
             Platform++;
         }
@@ -113,6 +118,11 @@ namespace CompManBase.Models
         {
             if (Ram >= RamNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextRam.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (Ram >= Platform)
             {
                 MessageBox.Show($"Для апгрейда ОЗУ {RamName} до {NextRam.Name} требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -125,6 +135,11 @@ namespace CompManBase.Models
         {
             if (Hdd >= HddNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextHdd.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (Hdd >= Platform)
             {
                 MessageBox.Show($"Для апгрейда жесткого диска {HddName} до {NextHdd.Name} требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -137,6 +152,11 @@ namespace CompManBase.Models
         {
             if (Video >= HddNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextVideo.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (Video >= Platform)
             {
                 MessageBox.Show($"Для апгрейда видеокарты {VideoName} до {NextVideo.Name} требуется более мощная платформа!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -149,6 +169,11 @@ namespace CompManBase.Models
         {
             if (Internet >= InternetNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextInternet.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             if (Platform < 1)
             {
                 MessageBox.Show($"Для апгрейда Интернет-провайдера {InternetName} до {NextInternet.Name} требуется купить любую платформу!", "Апгрейд недоступен", MessageBoxButton.OK, MessageBoxImage.Information);

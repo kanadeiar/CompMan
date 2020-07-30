@@ -64,6 +64,8 @@
     <Compile Include="Interfaces\Base\IWallet.cs" />
     <Compile Include="Models\Base\DateTimerBase.cs" />
     <Compile Include="Interfaces\Base\IDateTimerEvent.cs" />
+    <Compile Include="Models\Happy.cs" />
+    <Compile Include="Models\Base\HappyBase.cs" />
     <Compile Include="Models\Base\WorkBase.cs" />
     <Compile Include="Models\DateTimer.cs" />
     <Compile Include="Models\Soft.cs" />
@@ -86,6 +88,7 @@
       <DependentUpon>WorkWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinModels\ComputerWindowPanel.cs" />
+    <Compile Include="WinModels\HappyWindowPanel.cs" />
     <Compile Include="WinModels\MainWindowPanel.cs" />
     <Compile Include="WinModels\SoftWindowPanel.cs" />
     <Compile Include="WinModels\WorkWindowPanel.cs" />

@@ -122,7 +122,7 @@
                         <Button x:Name="ButtonComputer" Click="ButtonComputer_Click" Content="Апгрейд компьютера" Margin="1"/>
                         <Button x:Name="ButtonSoft" Click="ButtonSoft_Click" Content="Установка программ" Margin="1"/>
                         <Button x:Name="ButtonWork" Content="Искать новую работу" Margin="1" Click="ButtonWork_Click"/>
-                        <Button x:Name="ButtonHappy" Content="Развлечься" Margin="1"/>
+                        <Button x:Name="ButtonHappy" Content="Развлечься" Margin="1" Click="ButtonHappy_Click"/>
                         <Button x:Name="ButtonTorrents" Content="Торрент-трекер" Margin="1"/>
                         <Button x:Name="ButtonForums" Content="Интернет-форум" Margin="1"/>
                         <Button x:Name="ButtonHack" Content="Хакерство" Margin="1"/>

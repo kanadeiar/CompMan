@@ -36,7 +36,7 @@ namespace CompManBase.Models
             }
         }
         public SoftPrt NextOs => GetNextPart(Os, OsNames);
-        public bool NextOsMayBuy => NextOs.Level != -1 && _wallet.MaySubsctact(NextOs.Cost);
+        public bool NextOsMayBuy => NextOs.Level != -1;
         public string NextActionDevelop
         {
             get
@@ -49,7 +49,7 @@ namespace CompManBase.Models
             }
         }
         public SoftPrt NextDevelop => GetNextPart(Develop, DevelopNames);
-        public bool NextDevelopMayBuy => NextDevelop.Level != -1 && _wallet.MaySubsctact(NextDevelop.Cost);
+        public bool NextDevelopMayBuy => NextDevelop.Level != -1;
         public string NextActionAntivirus
         {
             get
@@ -62,7 +62,7 @@ namespace CompManBase.Models
             }
         }
         public SoftPrt NextAntivirus => GetNextPart(Antivirus, AntivirusNames);
-        public bool NextAntivirusMayBuy => NextAntivirus.Level != -1 && _wallet.MaySubsctact(NextAntivirus.Cost);
+        public bool NextAntivirusMayBuy => NextAntivirus.Level != -1;
         public string NextActionGame
         {
             get
@@ -75,7 +75,7 @@ namespace CompManBase.Models
             }
         }
         public SoftPrt NextGame => GetNextPart(Game, GameNames);
-        public bool NextGameMayBuy => NextGame.Level != -1 && _wallet.MaySubsctact(NextGame.Cost);
+        public bool NextGameMayBuy => NextGame.Level != -1;
         public string NextActionBrowser
         {
             get
@@ -88,7 +88,7 @@ namespace CompManBase.Models
             }
         }
         public SoftPrt NextBrowser => GetNextPart(Browser, BrowserNames);
-        public bool NextBrowserMayBuy => NextBrowser.Level != -1 && _wallet.MaySubsctact(NextBrowser.Cost);
+        public bool NextBrowserMayBuy => NextBrowser.Level != -1;
 
 
         /// <summary> Получение следующей по уровню программной части </summary>
@@ -109,6 +109,11 @@ namespace CompManBase.Models
         {
             if (Os >= OsNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextOs.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             bool needs = false;
             StringBuilder sb = new StringBuilder();
             if (Os >= _infoComputer.GetLevel(Components.Platform))
@@ -134,6 +139,11 @@ namespace CompManBase.Models
         {
             if (Develop >= DevelopNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextDevelop.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             bool needs = false;
             StringBuilder sb = new StringBuilder();
             if (Develop >= Os)
@@ -163,6 +173,11 @@ namespace CompManBase.Models
         {
             if (Antivirus >= AntivirusNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextAntivirus.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             bool needs = false;
             StringBuilder sb = new StringBuilder();
             if (Antivirus >= Os)
@@ -192,6 +207,11 @@ namespace CompManBase.Models
         {
             if (Game >= GameNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextGame.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             bool needs = false;
             StringBuilder sb = new StringBuilder();
             if (Game >= Os)
@@ -219,6 +239,11 @@ namespace CompManBase.Models
         {
             if (Browser >= BrowserNames.Length - 1)
                 return;
+            if (!_wallet.MaySubsctact(NextBrowser.Cost))
+            {
+                MessageBox.Show($"Не хватает денег!", "Обломинго!", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
             bool needs = false;
             StringBuilder sb = new StringBuilder();
             if (Browser >= Os)
