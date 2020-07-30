@@ -76,6 +76,9 @@
     <Compile Include="Windows\ComputerWindow.xaml.cs">
       <DependentUpon>ComputerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\HappyWindow.xaml.cs">
+      <DependentUpon>HappyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SoftWindow.xaml.cs">
       <DependentUpon>SoftWindow.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\ComputerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HappyWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
