@@ -15,12 +15,12 @@ namespace CompManBase.Models
         }
 
         #region Свойства-зависимости
-        public string Happy1Name => "Посмотреть телик";
-        public int Happy1Cost => 0;
-        public string Happy2Name => "Выпить кефирчика";
-        public int Happy2Cost => 30;
+        public string Happy1Name => "Выпить кефирчика";
+        public int Happy1Cost => 30;
+        public string Happy2Name => "Посмотреть новый фильм";
+        public int Happy2Cost => 300;
         public string Happy3Name => "Сходить в гости";
-        public int Happy3Cost => 1_000;
+        public int Happy3Cost => 2_000;
         public string Happy4Name => "Поиграть в игру на ПК";
         public int Happy4Cost => 0;
         public string Happy5Name => "Сходить по бабам";

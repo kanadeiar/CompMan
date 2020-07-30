@@ -21,6 +21,10 @@ namespace CompManBase.Models
         bool IWallet.MaySubsctact(int money) => Money >= money;
         /// <summary> Вычитание денег </summary>
         void IWallet.Substract(int money) => Money -= money;
+        /// <summary> Прибавить настроения </summary>
+        void IHappy.Add(int happy) => Happy += happy;
+        /// <summary> Убавить Настроение </summary>
+        void IHappy.Substract(int happy) => Happy -= happy;
 
         #region Свойства-зависимости
         public PlayerState State
@@ -62,6 +66,7 @@ namespace CompManBase.Models
             {
                 if (value == _happy) return;
                 _happy = value;
+                if (_happy > 100) _happy = 100;
                 Changed(nameof(Happy));
             }
         }
@@ -69,14 +74,9 @@ namespace CompManBase.Models
 
         
         public event PropertyChangedEventHandler PropertyChanged;
-
-
-
         private void Changed(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
-
-
 }

@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Converters\HappyStringConverter.cs" />
     <Compile Include="Converters\StateStringConverter.cs" />
+    <Compile Include="Interfaces\Base\IHappy.cs" />
     <Compile Include="Interfaces\Base\IStates.cs" />
     <Compile Include="Interfaces\Base\IPlayer.cs" />
     <Compile Include="Interfaces\Base\IInfoComputer.cs" />

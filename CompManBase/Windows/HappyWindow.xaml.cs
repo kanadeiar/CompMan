@@ -32,12 +32,33 @@ namespace CompManBase.Windows
         {
             HappyWindowPanel.DataContext = _panel;
         }
-
-
+        
+        private void ButtonHappy1_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.DoHappy1();
+        }
+        private void ButtonHappy2_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.DoHappy2();
+        }
+        private void ButtonHappy3_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.DoHappy3();
+        }
+        private void ButtonHappy4_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.DoHappy4();
+        }
+        private void ButtonHappy5_Click(object sender, RoutedEventArgs e)
+        {
+            _panel.DoHappy5();
+        }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
+
+
     }
 }

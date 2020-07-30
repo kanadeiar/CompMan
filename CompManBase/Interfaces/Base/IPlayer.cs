@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompManBase.Interfaces
 {
-    interface IPlayer : IStates, IWallet
+    public interface IPlayer : IStates, IWallet, IHappy
     {
 
     }

@@ -20,5 +20,11 @@ namespace CompManBase.Models
             _timer.IsEnabled = !_timer.IsEnabled;
             Changed(nameof(TextOnButton));
         }
+        /// <summary> Остановка таймера </summary>
+        public void Pause()
+        {
+            _timer.IsEnabled = false;
+            Changed(nameof(TextOnButton));
+        }
     }
 }

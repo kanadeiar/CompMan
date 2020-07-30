@@ -20,6 +20,26 @@ namespace CompManBase.WinModels
         }
 
         #region Свойства - зависимости
+        public void DoHappy1()
+        {
+            Happy.DoHappy1();
+        }
+        public void DoHappy2()
+        {
+            Happy.DoHappy2();
+        }
+        public void DoHappy3()
+        {
+            Happy.DoHappy3();
+        }
+        public void DoHappy4()
+        {
+            Happy.DoHappy4();
+        }
+        public void DoHappy5()
+        {
+            Happy.DoHappy5();
+        }
 
         #endregion
 

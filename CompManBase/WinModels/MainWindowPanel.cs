@@ -30,7 +30,7 @@ namespace CompManBase.WinModels
             Player = new Player(Timer)
             {
                 State = PlayerState.Teapot,
-                Money = 9000,
+                Money = 900000,
                 Happy = 100,
             };
             Computer = new Computer(Player);
