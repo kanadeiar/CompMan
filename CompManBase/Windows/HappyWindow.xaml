@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="Развлечения" Height="300" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFFFBCED">
     <Window.Resources>
+        <Style TargetType="Image" x:Key="StyleImage">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy1, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/Computer.png"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid x:Name="HappyWindowPanel">
         <Grid.ColumnDefinitions>
@@ -19,7 +26,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Button x:Name="ButtonClose" Click="ButtonClose_Click" Grid.Row="1" Content="Закрыть"/>
-            <Image x:Name="ImageComputer" HorizontalAlignment="Left" Height="220" Margin="0,0,0,0" VerticalAlignment="Top" Width="110"/>
+            <Image x:Name="ImageComputer" Style="{StaticResource ResourceKey=StyleImage}" HorizontalAlignment="Left" Height="240" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" OpacityMask="#FFD45757"/>
         </Grid>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

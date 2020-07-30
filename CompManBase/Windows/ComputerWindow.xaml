@@ -147,7 +147,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Button x:Name="ButtonClose" Click="ButtonClose_Click" Grid.Row="1" Content="Закрыть"/>
-            <Image x:Name="ImageComputer" Source="/CompManBase;component/Images/Computer.png" HorizontalAlignment="Left" Height="110" Margin="0,0,0,0" VerticalAlignment="Top" Width="110"/>
+            <Image x:Name="ImageComputer" Source="/CompManBase;component/Images/Computer.png" HorizontalAlignment="Left" Height="120" Margin="0,0,0,0" VerticalAlignment="Top" Width="120"/>
         </Grid>
     </Grid>
 </Window>

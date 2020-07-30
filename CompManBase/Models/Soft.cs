@@ -13,12 +13,14 @@ namespace CompManBase.Models
     public class Soft : SoftBase
     {
         private IWallet _wallet; //кошелек игрока
+        private IChangeScore _score; //счет игрока
         private IInfoComputer _infoComputer; //инфа по компьютеру
         /// <summary> Конструктор с кошелем игрока </summary>
         /// <param name="wallet">Кошель игрока</param>
-        public Soft(IWallet wallet, IInfoComputer computer)
+        public Soft(IPlayer player, IInfoComputer computer)
         {
-            _wallet = wallet;
+            _wallet = player;
+            _score = player;
             _infoComputer = computer;
         }
 
@@ -134,6 +136,7 @@ namespace CompManBase.Models
             InstallProgress = 0;
             Changed(nameof(InstallProgress));
             Os++;
+            _score.Add(1);
         }
         public async Task BuyDevelopAsync()
         {
@@ -168,6 +171,7 @@ namespace CompManBase.Models
             InstallProgress = 0;
             Changed(nameof(InstallProgress));
             Develop++;
+            _score.Add(1);
         }
         public async Task BuyAntivirusAsync()
         {
@@ -202,6 +206,7 @@ namespace CompManBase.Models
             InstallProgress = 0;
             Changed(nameof(InstallProgress));
             Antivirus++;
+            _score.Add(1);
         }
         public async Task BuyGameAsync()
         {
@@ -234,6 +239,7 @@ namespace CompManBase.Models
             InstallProgress = 0;
             Changed(nameof(InstallProgress));
             Game++;
+            _score.Add(1);
         }
         public async Task BuyBrowserAsync()
         {
@@ -268,6 +274,7 @@ namespace CompManBase.Models
             InstallProgress = 0;
             Changed(nameof(InstallProgress));
             Browser++;
+            _score.Add(1);
         }
 
         /// <summary> Добавление причины к отказу </summary>

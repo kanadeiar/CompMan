@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
 using System;
+using static CompManBase.Models.PlayerBase;
 
 namespace CompManBase.WinModels
 {
@@ -29,7 +30,7 @@ namespace CompManBase.WinModels
             Timer = new DateTimer();
             Player = new Player(Timer)
             {
-                State = PlayerState.Teapot,
+                State = 0,
                 Money = 900000,
                 Happy = 100,
             };

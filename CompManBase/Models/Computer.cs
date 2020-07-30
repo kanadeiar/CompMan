@@ -11,10 +11,12 @@ namespace CompManBase.Models
     public class Computer : ComputerBase
     {
         private IWallet _wallet; //кошелек игрока
+        private IChangeScore _score; //счет игрока
         /// <summary> Конструктор с кошелем игрока </summary>
-        public Computer(IWallet wallet)
+        public Computer(IPlayer player)
         {
-            _wallet = wallet;
+            _wallet = player;
+            _score = player;
         }
 
         #region Следующие по уровню компоненты
@@ -113,6 +115,7 @@ namespace CompManBase.Models
             }
             _wallet.Substract(NextPlatform.Cost);
             Platform++;
+            _score.Add(1);
         }
         public void BuyRam()
         {
@@ -130,6 +133,7 @@ namespace CompManBase.Models
             }
             _wallet.Substract(NextRam.Cost);
             Ram++;
+            _score.Add(1);
         }
         public void BuyHdd()
         {
@@ -147,6 +151,7 @@ namespace CompManBase.Models
             }
             _wallet.Substract(NextHdd.Cost);
             Hdd++;
+            _score.Add(1);
         }
         public void BuyVideo()
         {
@@ -164,6 +169,7 @@ namespace CompManBase.Models
             }
             _wallet.Substract(NextVideo.Cost);
             Video++;
+            _score.Add(1);
         }
         public void BuyInternet()
         {
@@ -181,6 +187,7 @@ namespace CompManBase.Models
             }
             _wallet.Substract(NextInternet.Cost);
             Internet++;
+            _score.Add(1);
         }
 
         #endregion

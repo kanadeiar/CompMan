@@ -1,12 +1,13 @@
 ﻿using CompManBase.Interfaces;
 using System;
 using System.ComponentModel;
+using System.Linq;
 
 namespace CompManBase.Models
 {
     public abstract class PlayerBase : IPlayer, INotifyPropertyChanged
     {
-        private PlayerState _state;
+        private int _state; //текущий статус
         private int _score;
         private int _money;
         private float _happy;
@@ -25,9 +26,27 @@ namespace CompManBase.Models
         void IHappy.Add(int happy) => Happy += happy;
         /// <summary> Убавить Настроение </summary>
         void IHappy.Substract(int happy) => Happy -= happy;
+        /// <summary> Прибавить счет </summary>
+        void IChangeScore.Add(int score)
+        {
+            Score += score;
+            if (Score > StateNames.First(n => n.Level == _state).ScoreUp && State < StateNames.Length - 1)
+            {
+                State++;
+            }
+        }
+        /// <summary> Убавить счет </summary>
+        void IChangeScore.Substract(int score)
+        {
+            Score -= score;
+            if (Score < StateNames.First(n => n.Level == _state).Score && State > 0)
+            {
+                State--;
+            }
+        }
 
         #region Свойства-зависимости
-        public PlayerState State
+        public int State
         {
             get => _state;
             set
@@ -38,7 +57,7 @@ namespace CompManBase.Models
                 Changed(nameof(Level));
             }
         }
-        public int Level { get => Convert.ToInt32(_state) + 1; }
+        public int Level { get => StateNames[State + 1].Level; }
         public int Score
         {
             get => _score;
@@ -78,5 +97,28 @@ namespace CompManBase.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        /////////////////////////////////////////////////////////////////////
+        public struct StateData
+        {
+            /// <summary> Уровень игрока </summary>
+            public int Level;
+            /// <summary> Название статуса </summary>
+            public string Name;
+            /// <summary> Очки статуса минимум </summary>
+            public int Score;
+            /// <summary> Очки статуса повышения </summary>
+            public int ScoreUp;
+        }
+        #region Данные
+        public static StateData[] StateNames = new[]
+        {
+            new StateData { Level = 0, Name ="Чайник", Score = int.MinValue, ScoreUp = 9 },
+            new StateData { Level = 1, Name ="Ламер", Score = 7, ScoreUp = 32 },
+            new StateData { Level = 2, Name ="Юзер", Score = 28, ScoreUp = 103 },
+            new StateData { Level = 3, Name ="Сисадмин", Score = 97, ScoreUp = 304 },
+            new StateData { Level = 4, Name ="Программист", Score = 296, ScoreUp = 1005 },
+            new StateData { Level = 5, Name ="Хакер", Score = 995, ScoreUp = int.MaxValue },
+        };
+        #endregion
     }
 }
