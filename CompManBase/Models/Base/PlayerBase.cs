@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Media;
 
 namespace CompManBase.Models
 {
@@ -33,6 +34,7 @@ namespace CompManBase.Models
             if (Score > StateNames.First(n => n.Level == _state).ScoreUp && State < StateNames.Length - 1)
             {
                 State++;
+                SystemSounds.Exclamation.Play();
             }
         }
         /// <summary> Убавить счет </summary>
@@ -42,6 +44,7 @@ namespace CompManBase.Models
             if (Score < StateNames.First(n => n.Level == _state).Score && State > 0)
             {
                 State--;
+                SystemSounds.Hand.Play();
             }
         }
 

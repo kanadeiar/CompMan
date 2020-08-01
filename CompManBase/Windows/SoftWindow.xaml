@@ -123,7 +123,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Прогресс установки:"/>
-                    <ProgressBar Grid.Row="1" Margin="5" Minimum="0" Maximum="100" Value="{Binding Soft.InstallProgress}"/>
+                    <ProgressBar Grid.Row="1" Margin="5" Minimum="0" Maximum="100" Value="{Binding Soft.InstallProgress}" Foreground="#FFA8CADE"/>
                     <Label Grid.Row="1" Content="{Binding Soft.InstallProgress}" ContentStringFormat="{}{0} %" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold"/>
 
                 </Grid>

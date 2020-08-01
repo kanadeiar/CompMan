@@ -10,7 +10,19 @@
         <Style TargetType="Image" x:Key="StyleImage">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ElementName=ButtonHappy1, Path=IsMouseOver}" Value="True">
-                    <Setter Property="Source" Value="/CompManBase;component/Images/Computer.png"/>
+                    <Setter Property="Source" Value="/CompManBase;component/Images/Kefir.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy2, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/Film.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy3, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/Friends.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy4, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/HappyComputer.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy5, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/HappyGirls.png"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>

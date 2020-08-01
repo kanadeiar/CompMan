@@ -91,10 +91,10 @@ namespace CompManBase.Models
             _wallet.Substract(Happy4Cost);
             if (rand.Next(100) <= 30)
             {
-                var result = MessageBox.Show($"Вы подхватили сифилис от двух милых барышень! Для лечения срочно требуется 100_000 рублей! Оплатить лечение?", "СИФИЛИС!", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                var result = MessageBox.Show($"Вы подхватили сифилис от милой барышни! Для лечения срочно требуется 100_000 рублей! Оплатить лечение?", "СИФИЛИС!", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (result == MessageBoxResult.Yes)
                 {
-                    _wallet.Substract(30_000);
+                    _wallet.Substract(100_000);
                     _score.Substract(1);
                     MessageBox.Show($"Вы успешно вылечились!", "Лечение.", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -111,13 +111,13 @@ namespace CompManBase.Models
                 _wallet.Substract(Convert.ToInt32(_states.Money * 0.9));
                 _happy.Substract(60);
                 _score.Substract(3);
-                MessageBox.Show($"Вы были были обмануты, ограблены и избиты до полусмерти двумя милыми барышнями!", "Ограбление!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                MessageBox.Show($"Вы были были обмануты, ограблены и избиты до полусмерти милой барышней!", "Ограбление!", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
             int happy = 100 - _states.Level * 10; //сколько настроения прибавить
             _happy.Add(happy);
             _score.Add(1);
-            MessageBox.Show($"Вы весело провели время с двумя милыми барышнями!", "Развлечение!", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            MessageBox.Show($"Вы весело провели время с милой барышней!", "Развлечение!", MessageBoxButton.OK, MessageBoxImage.Asterisk);
         }
         #endregion
     }
