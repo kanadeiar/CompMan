@@ -11,7 +11,7 @@ namespace CompManBase.Models
     public class Player : PlayerBase
     {
 
-        public Player(IDateTimerEvent timer)
+        public Player(IDateTimerEvent timer) : base()
         {
             timer.NextDayEvent += DayUpdate;
             timer.NextMounthEvent += MounthUpdate;

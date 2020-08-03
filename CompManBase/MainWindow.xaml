@@ -42,7 +42,7 @@
                         <TextBlock HorizontalAlignment="Left" Margin="10,19,0,0" TextWrapping="Wrap" Text="Уровень:" VerticalAlignment="Top"/>
                         <TextBlock x:Name="TextBlockLevel" Text="{Binding Player.Level}" HorizontalAlignment="Left" Margin="90,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,37,0,0" TextWrapping="Wrap" Text="Денег:" VerticalAlignment="Top"/>
-                        <Label x:Name="LabelMoney" Content="{Binding Player.Money}" ContentStringFormat="{}{0} рублей" HorizontalAlignment="Left" Margin="85,30,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="LabelMoney" Text="{Binding Path=Player.Money, StringFormat={}{0} рублей}" HorizontalAlignment="Left" Margin="90,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" Text="Очков:" VerticalAlignment="Top"/>
                         <TextBlock x:Name="TextBlockScore" Text="{Binding Player.Score}" HorizontalAlignment="Left" Margin="90,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,73,0,0" TextWrapping="Wrap" Text="Настроение:" VerticalAlignment="Top"/>
@@ -85,7 +85,7 @@
                         <TextBlock HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap" Text="Браузер:" VerticalAlignment="Top"/>
                         <TextBlock x:Name="TextBlockBrowser" Text="{Binding Soft.BrowserName}" HorizontalAlignment="Left" Margin="90,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
                         <TextBlock HorizontalAlignment="Left" Margin="10,109,0,0" TextWrapping="Wrap" Text="Другой софт:" VerticalAlignment="Top"/>
-                        <Label x:Name="LabelSoftOther" Content="{Binding Soft.Other}" ContentStringFormat="{}{0} Гб" HorizontalAlignment="Left" Margin="86,104,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="LabelSoftOther" Text="{Binding Path=Soft.Other, StringFormat={}{0} Гб}" HorizontalAlignment="Left" Margin="90,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
                 <Grid.ContextMenu>
@@ -107,7 +107,7 @@
                 <GroupBox Header="Работа">
                     <Grid>
                         <TextBlock x:Name="TextBlockWork" Text="{Binding Work.WorkName}" HorizontalAlignment="Left" Margin="5,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
-                        <Label x:Name="TextBlockSalary" Content="{Binding Work.Salary}" ContentStringFormat="{}{0} руб./день" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockSalary" Text="{Binding Path=Work.Salary, StringFormat={}{0} руб./день}" Margin="5,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
                     </Grid>
                 </GroupBox>
                 <Grid.ContextMenu>
@@ -123,7 +123,7 @@
                         <Button x:Name="ButtonSoft" Click="ButtonSoft_Click" Content="Установка программ" Margin="1"/>
                         <Button x:Name="ButtonWork" Content="Искать новую работу" Margin="1" Click="ButtonWork_Click"/>
                         <Button x:Name="ButtonHappy" Content="Развлечься" Margin="1" Click="ButtonHappy_Click"/>
-                        <Button x:Name="ButtonTorrents" Content="Торрент-трекер" Margin="1"/>
+                        <Button x:Name="ButtonTorrents" Content="Торрент-трекер" Margin="1" Click="ButtonTorrents_Click"/>
                         <Button x:Name="ButtonForums" Content="Интернет-форум" Margin="1"/>
                         <Button x:Name="ButtonHack" Content="Хакерство" Margin="1"/>
                     </StackPanel>

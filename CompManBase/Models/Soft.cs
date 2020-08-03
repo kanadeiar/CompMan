@@ -17,7 +17,7 @@ namespace CompManBase.Models
         private IInfoComputer _infoComputer; //инфа по компьютеру
         /// <summary> Конструктор с кошелем игрока </summary>
         /// <param name="wallet">Кошель игрока</param>
-        public Soft(IPlayer player, IInfoComputer computer)
+        public Soft(IPlayer player, IInfoComputer computer) : base()
         {
             _wallet = player;
             _score = player;

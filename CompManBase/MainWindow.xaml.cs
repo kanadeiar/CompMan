@@ -64,6 +64,12 @@ namespace CompManBase
             window.Owner = Window.GetWindow(this);
             window.ShowDialog();
         }
+        private void ButtonTorrents_Click(object sender, RoutedEventArgs e)
+        {
+            TorrentWindow window = new TorrentWindow(_panel.Torrent);
+            window.Owner = Window.GetWindow(this);
+            window.ShowDialog();
+        }
 
 
 

@@ -13,7 +13,7 @@ namespace CompManBase.Models
         private IWallet _wallet; //кошелек игрока
         private IChangeScore _score; //счет игрока
         /// <summary> Конструктор с кошелем игрока </summary>
-        public Computer(IPlayer player)
+        public Computer(IPlayer player) : base()
         {
             _wallet = player;
             _score = player;

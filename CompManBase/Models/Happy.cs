@@ -17,7 +17,7 @@ namespace CompManBase.Models
         private IChangeScore _score; //счет игрока
         Random rand = new Random();
         /// <summary> Конструктор с кошелем игрока </summary>
-        public Happy(IPlayer player, IInfoSoft soft)
+        public Happy(IPlayer player, IInfoSoft soft) : base()
         {
             _wallet = player;
             _soft = soft;

@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Converters\HappyStringConverter.cs" />
+    <Compile Include="Converters\RatingStringConverter.cs" />
     <Compile Include="Converters\StateStringConverter.cs" />
     <Compile Include="Interfaces\Base\IChangeScore.cs" />
     <Compile Include="Interfaces\Base\IHappy.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Interfaces\Base\IWallet.cs" />
     <Compile Include="Models\Base\DateTimerBase.cs" />
     <Compile Include="Interfaces\Base\IDateTimerEvent.cs" />
+    <Compile Include="Models\Base\TorrentBase.cs" />
     <Compile Include="Models\Happy.cs" />
     <Compile Include="Models\Base\HappyBase.cs" />
     <Compile Include="Models\Base\WorkBase.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Models\Base\ComputerBase.cs" />
     <Compile Include="Models\Base\PlayerBase.cs" />
     <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Torrent.cs" />
     <Compile Include="Models\Work.cs" />
     <Compile Include="Windows\ComputerWindow.xaml.cs">
       <DependentUpon>ComputerWindow.xaml</DependentUpon>
@@ -86,6 +89,9 @@
     <Compile Include="Windows\SoftWindow.xaml.cs">
       <DependentUpon>SoftWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\TorrentWindow.xaml.cs">
+      <DependentUpon>TorrentWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\WorkWindow.xaml.cs">
       <DependentUpon>WorkWindow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +99,7 @@
     <Compile Include="WinModels\HappyWindowPanel.cs" />
     <Compile Include="WinModels\MainWindowPanel.cs" />
     <Compile Include="WinModels\SoftWindowPanel.cs" />
+    <Compile Include="WinModels\TorrentWindowPanel.cs" />
     <Compile Include="WinModels\WorkWindowPanel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -115,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\SoftWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\TorrentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,7 +13,6 @@ namespace CompManBase.Models
 
         public WorkBase()
         {
-
         }
 
         #region Свойства-зависимости
@@ -32,7 +31,6 @@ namespace CompManBase.Models
         public string WorkName => WorkNames[_work].Name;
         public int Salary => WorkNames[_work].Salary;
         #endregion
-
 
 
         /////////////////////////////////////////////////////////////////////

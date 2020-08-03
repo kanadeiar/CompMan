@@ -11,8 +11,7 @@ namespace CompManBase.Models
     {
         public DateTimer() : base()
         {
-            _dateTime = startDateTime = new DateTime(2020, 01, 01, 00, 00, 00);
-            
+            _dateTime = startDateTime = new DateTime(2020, 01, 01, 00, 00, 00);            
         }
         /// <summary> Пауза / пуск таймера </summary>
         public void PauseStart()

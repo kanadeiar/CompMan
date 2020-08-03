@@ -115,8 +115,8 @@ namespace CompManBase.Models
         #region Данные
         public static StateData[] StateNames = new[]
         {
-            new StateData { Level = 0, Name ="Чайник", Score = int.MinValue, ScoreUp = 9 },
-            new StateData { Level = 1, Name ="Ламер", Score = 7, ScoreUp = 32 },
+            new StateData { Level = 0, Name ="Чайник", Score = int.MinValue, ScoreUp = 11 },
+            new StateData { Level = 1, Name ="Ламер", Score = 9, ScoreUp = 32 },
             new StateData { Level = 2, Name ="Юзер", Score = 28, ScoreUp = 103 },
             new StateData { Level = 3, Name ="Сисадмин", Score = 97, ScoreUp = 304 },
             new StateData { Level = 4, Name ="Программист", Score = 296, ScoreUp = 1005 },

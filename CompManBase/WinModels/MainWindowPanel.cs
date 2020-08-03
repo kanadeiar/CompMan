@@ -24,6 +24,9 @@ namespace CompManBase.WinModels
         public WorkBase Work { get; set; }
         /// <summary> Развлечения игрока </summary>
         public HappyBase Happy { get; set; }
+        /// <summary> Торренты </summary>
+        public TorrentBase Torrent { get; set; }
+
 
         public MainWindowPanel()
         {
@@ -39,6 +42,7 @@ namespace CompManBase.WinModels
             Work = new Work(Timer, Player, Player);
             Work.Work = 0;
             Happy = new Happy(Player, Soft);
+            Torrent = new Torrent(Timer, Player);
         }
 
 

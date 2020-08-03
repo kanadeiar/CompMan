@@ -12,7 +12,7 @@ namespace CompManBase.Models
         private IStates _player; //Состояние игрока
         private IWallet _wallet; //кошелек игрока
         /// <summary> Конструктор с кошелем игрока </summary>
-        public Work(IDateTimerEvent timer, IWallet wallet, IStates player)
+        public Work(IDateTimerEvent timer, IWallet wallet, IStates player) : base()
         {
             _wallet = wallet;
             _player = player;
