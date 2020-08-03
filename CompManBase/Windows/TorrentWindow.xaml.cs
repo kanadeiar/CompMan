@@ -22,11 +22,11 @@ namespace CompManBase.Windows
 
         private void ButtonUpload_Click(object sender, RoutedEventArgs e)
         {
-            _panel.DoUpload();
+            _panel.DoUploadAsync();
         }
         private void ButtonDownload_Click(object sender, RoutedEventArgs e)
         {
-            _panel.DoDownload();
+            _panel.DoDownloadAsync();
         }
 
         private void ButtonClose_Click(object sender, RoutedEventArgs e)

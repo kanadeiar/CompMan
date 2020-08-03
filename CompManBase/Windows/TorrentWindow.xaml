@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CompManBase.Windows"
         xmlns:c="clr-namespace:CompManBase.Converters"
         mc:Ignorable="d"
-        Title="Торрент-трекер" Height="200" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFB0FFA9">
+        Title="Торрент-трекер" Height="250" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFB0FFA9">
     <Window.Resources>
         <c:RatingStringConverter x:Key="RatingStringConverter"/>
     </Window.Resources>
@@ -14,6 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -26,7 +27,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.ColumnSpan="2" Text="{Binding Path=Torrent.Rating, StringFormat=Рейтинг: {0}, Converter={StaticResource RatingStringConverter}}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-            <TextBlock Grid.Row="1" Text="{Binding Path=Torrent.Upload, StringFormat=Закачано: {0} Гб}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=Torrent.Upload, StringFormat=Закачано: {0} Гб}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Path=Torrent.Download, StringFormat=Скачано: {0} Гб}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
         <Grid Grid.Row="1">
@@ -47,8 +48,16 @@
                 </StackPanel>
             </Button>
         </Grid>
-        
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="2" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Прогресс:"/>
+            <ProgressBar Grid.Row="1" Margin="5" Minimum="0" Height="20" Maximum="100" Value="{Binding Torrent.LoadProgress}" Foreground="#FFA8CADE"/>
+            <Label Grid.Row="1" Content="{Binding Torrent.LoadProgress}" ContentStringFormat="{}{0} %" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="ExtraBold"/>
+        </Grid>
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

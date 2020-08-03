@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CompManBase.Models
 {
-    public abstract class SoftBase : INotifyPropertyChanged, IInfoSoft
+    public abstract class SoftBase : INotifyPropertyChanged, IInfoSoft, IOtherSoftChange
     {
         private int _os;
         private int _develop;
@@ -34,6 +34,11 @@ namespace CompManBase.Models
                 default: throw new InvalidEnumArgumentException("Неверная часть софта компьютера!");
             }
         }
+        /// <summary> Добавление софта </summary>
+        void IOtherSoftChange.AddOtherSoft(int size) => Other += size;
+        /// <summary> Убавление софта </summary>
+        void IOtherSoftChange.SubstractOtherSoft(int size) => Other -= size;
+
         #region Свойства-зависимости
         public int Os
         {
@@ -102,6 +107,7 @@ namespace CompManBase.Models
             {
                 if (value == _other) return;
                 _other = value;
+                if (_other < 0) _other = 0;
                 Changed(nameof(Other));
             }
         }

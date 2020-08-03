@@ -3,6 +3,8 @@ using CompManBase.Windows;
 using CompManBase.WinModels;
 using System.Windows;
 using System.Windows.Data;
+using CompManBase.Interfaces;
+using static CompManBase.Models.ComputerBase.Components;
 
 namespace CompManBase
 {
@@ -66,6 +68,13 @@ namespace CompManBase
         }
         private void ButtonTorrents_Click(object sender, RoutedEventArgs e)
         {
+            //доступ к торрентам - только если подключен интернет и есть браузер
+            bool mayTorrent = ((IInfoComputer)_panel.Computer).GetLevel(Internet) > 0 && ((IInfoSoft)_panel.Soft).GetInfo(SoftBase.Parts.Browser) > 0;
+            if (!mayTorrent)
+            {
+                MessageBox.Show("Для доступа к торрент-трекеру должен быть подключен интернет и должен быть установлен любой браузер!", "Торрент-трекер недоступен", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             TorrentWindow window = new TorrentWindow(_panel.Torrent);
             window.Owner = Window.GetWindow(this);
             window.ShowDialog();

@@ -57,7 +57,6 @@ namespace CompManBase.WinModels
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
             }
         }
-
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;

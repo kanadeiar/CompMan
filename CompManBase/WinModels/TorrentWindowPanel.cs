@@ -20,22 +20,35 @@ namespace CompManBase.WinModels
         }
 
         #region Свойства-зависимости
-        public bool MayUpload => Torrent.MayUpload;
-        public void DoUpload()
+        /// <summary> флаг блокировки нажатий кнопок </summary>
+        private bool blockButtons;
+
+        public bool MayUpload => Torrent.MayUpload && !blockButtons;
+        public async void DoUploadAsync()
         {
-            Torrent.DoUpload();
-            Changed(nameof(MayUpload));
+            BlockButtons(true);
+            await Torrent.DoUploadAsync();
+            BlockButtons(false);
         }
-        public bool MayDownload => Torrent.MayDownload;
-        public void DoDownload()
+        public bool MayDownload => Torrent.MayDownload && !blockButtons;
+        public async void DoDownloadAsync()
         {
-            Torrent.DoDownload();
-            Changed(nameof(MayDownload));
+            BlockButtons(true);
+            await Torrent.DoDownloadAsync();
+            BlockButtons(false);
         }
+        /// <summary> Обновление статуса доступности кнопок </summary>
         private void MaysUpdate(object sender, EventArgs e)
         {
             Changed(nameof(MayUpload));
             Changed(nameof(MayDownload));
+        }
+
+        /// <summary> Блокировка нажатий кнопок управления </summary>
+        private void BlockButtons(bool block)
+        {
+            blockButtons = block;
+            MaysUpdate(this, null);
         }
         #endregion
 
