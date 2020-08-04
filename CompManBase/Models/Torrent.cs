@@ -11,15 +11,17 @@ namespace CompManBase.Models
     public class Torrent : TorrentBase
     {
         private IChangeScore _score; //счет игрока
+        private IOtherSoftChange _otherSoftChange; //изменение количества софта
         private bool _mayUpload;
         private bool _mayDownload;
         Random rand = new Random();
         /// <summary> Обновление доступности закачки и скачки </summary>
         public event EventHandler MaysUpdated;
         /// <summary> Конструктор с счетом игрока </summary>
-        public Torrent(IDateTimerEvent timer, IChangeScore score) : base()
+        public Torrent(IDateTimerEvent timer, IChangeScore score, IOtherSoftChange soft) : base()
         {
             _score = score;
+            _otherSoftChange = soft;
             timer.NextDayEvent += DayUpdate;
             _mayUpload = _mayDownload = true;
         }
@@ -38,7 +40,7 @@ namespace CompManBase.Models
             await Task.Run(LoadProcess());
             LoadProgress = 0;
             Changed(nameof(LoadProgress));
-            Upload += rand.Next(1, 3);
+            Upload += 1;
             _score.Add(1);
             Rating++;
             _mayUpload = false;
@@ -48,9 +50,9 @@ namespace CompManBase.Models
             await Task.Run(LoadProcess());
             LoadProgress = 0;
             Changed(nameof(LoadProgress));
-            Download += rand.Next(1, 10);
-            _score.Add(1);
-            Rating++;
+            int soft = rand.Next(1, 10);
+            Download += soft;
+            _otherSoftChange.AddOtherSoft(soft);
             _mayDownload = false;
         }
 

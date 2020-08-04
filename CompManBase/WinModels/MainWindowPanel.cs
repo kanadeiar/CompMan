@@ -42,7 +42,7 @@ namespace CompManBase.WinModels
             Work = new Work(Timer, Player, Player);
             Work.Work = 0;
             Happy = new Happy(Player, Soft);
-            Torrent = new Torrent(Timer, Player);
+            Torrent = new Torrent(Timer, Player, Soft);
         }
 
 

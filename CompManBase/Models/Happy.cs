@@ -101,7 +101,7 @@ namespace CompManBase.Models
                 else
                 {
                     _happy.Substract(60);
-                    _score.Substract(2);
+                    _score.Substract(3);
                     MessageBox.Show($"Вы проигнорировали лечение и вы будете вечно болеть сифилисом!", "Отказ от лечения.", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 return;
@@ -110,13 +110,12 @@ namespace CompManBase.Models
             {
                 _wallet.Substract(Convert.ToInt32(_states.Money * 0.9));
                 _happy.Substract(60);
-                _score.Substract(3);
+                _score.Substract(5);
                 MessageBox.Show($"Вы были были обмануты, ограблены и избиты до полусмерти милой барышней!", "Ограбление!", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
             int happy = 100 - _states.Level * 10; //сколько настроения прибавить
             _happy.Add(happy);
-            _score.Add(1);
             MessageBox.Show($"Вы весело провели время с милой барышней!", "Развлечение!", MessageBoxButton.OK, MessageBoxImage.Asterisk);
         }
         #endregion
