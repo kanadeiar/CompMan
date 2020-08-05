@@ -26,7 +26,10 @@ namespace CompManBase.WinModels
         public HappyBase Happy { get; set; }
         /// <summary> Торренты </summary>
         public TorrentBase Torrent { get; set; }
-
+        /// <summary> Форум </summary>
+        public ForumBase Forum { get; set; }
+        /// <summary> Хакерство </summary>
+        public IHackPrograms Hack { get; set; }
 
         public MainWindowPanel()
         {
@@ -43,6 +46,8 @@ namespace CompManBase.WinModels
             Work.Work = 0;
             Happy = new Happy(Player, Soft);
             Torrent = new Torrent(Timer, Player, Soft);
+            Hack = new Hack();
+            Forum = new Forum(Player, Hack);
         }
 
 

@@ -66,9 +66,14 @@
     <Compile Include="Interfaces\Base\IInfoComputer.cs" />
     <Compile Include="Interfaces\Base\IInfoSoft.cs" />
     <Compile Include="Interfaces\Base\IWallet.cs" />
+    <Compile Include="Interfaces\IHackPrograms.cs" />
     <Compile Include="Models\Base\DateTimerBase.cs" />
     <Compile Include="Interfaces\Base\IDateTimerEvent.cs" />
+    <Compile Include="Models\Base\ForumBase.cs" />
+    <Compile Include="Models\Base\HackBase.cs" />
     <Compile Include="Models\Base\TorrentBase.cs" />
+    <Compile Include="Models\Forum.cs" />
+    <Compile Include="Models\Hack.cs" />
     <Compile Include="Models\Happy.cs" />
     <Compile Include="Models\Base\HappyBase.cs" />
     <Compile Include="Models\Base\WorkBase.cs" />
@@ -81,8 +86,15 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Torrent.cs" />
     <Compile Include="Models\Work.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Windows\ComputerWindow.xaml.cs">
       <DependentUpon>ComputerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForumWindow.xaml.cs">
+      <DependentUpon>ForumWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HackWindow.xaml.cs">
+      <DependentUpon>HackWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\HappyWindow.xaml.cs">
       <DependentUpon>HappyWindow.xaml</DependentUpon>
@@ -97,6 +109,7 @@
       <DependentUpon>WorkWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="WinModels\ComputerWindowPanel.cs" />
+    <Compile Include="WinModels\ForumWindowPanel.cs" />
     <Compile Include="WinModels\HappyWindowPanel.cs" />
     <Compile Include="WinModels\MainWindowPanel.cs" />
     <Compile Include="WinModels\SoftWindowPanel.cs" />
@@ -115,6 +128,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\ComputerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ForumWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HackWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
