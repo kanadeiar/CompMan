@@ -10,24 +10,22 @@ using CompManBase.Models;
 
 namespace CompManBase.WinModels
 {
-    public class HackWindowPanel : INotifyPropertyChanged
+    public class HackMissionWindowPanel : INotifyPropertyChanged
     {
         /// <summary> Хакерство </summary>
         public Hack Hack { get; set; }
-        public HackWindowPanel() { }
-        public HackWindowPanel(Hack hack)
+        public HackMissionWindowPanel() { }
+        public HackMissionWindowPanel(Hack hack)
         {
             Hack = hack;
-            MissionText = Hack.GetNewMission().Name;
         }
-
         #region Свойства - зависимости
 
-        public IEnumerable<string> ProgramsStrs => Hack.HackPrograms.Select(p => p.Name);
-        public string MissionText { get; set; }
+
+
+
 
         #endregion
-
         public event PropertyChangedEventHandler PropertyChanged;
         protected void Changed(string propertyName)
         {

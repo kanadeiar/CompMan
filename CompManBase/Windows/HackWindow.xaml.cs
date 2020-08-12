@@ -32,6 +32,14 @@ namespace CompManBase.Windows
             HackWindowPanel.DataContext = _panel;
         }
 
+        private void ButtonGo_Click(object sender, RoutedEventArgs e)
+        {
+            HackMissionWindow window = new HackMissionWindow(_panel.Hack);
+            window.Owner = this.Owner;
+            DialogResult = false;
+            window.ShowDialog();
+        }
+
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e)
         {
             DialogResult = false;

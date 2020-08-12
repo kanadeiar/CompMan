@@ -93,6 +93,9 @@
     <Compile Include="Windows\ForumWindow.xaml.cs">
       <DependentUpon>ForumWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\HackMissionWindow.xaml.cs">
+      <DependentUpon>HackMissionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\HackWindow.xaml.cs">
       <DependentUpon>HackWindow.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,7 @@
     </Compile>
     <Compile Include="WinModels\ComputerWindowPanel.cs" />
     <Compile Include="WinModels\ForumWindowPanel.cs" />
+    <Compile Include="WinModels\HackMissionWindowPanel.cs" />
     <Compile Include="WinModels\HackWindowPanel.cs" />
     <Compile Include="WinModels\HappyWindowPanel.cs" />
     <Compile Include="WinModels\MainWindowPanel.cs" />
@@ -133,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\ForumWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HackMissionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
