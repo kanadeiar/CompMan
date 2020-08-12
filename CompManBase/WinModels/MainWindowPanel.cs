@@ -17,7 +17,6 @@ namespace CompManBase.WinModels
         public ComputerBase Computer { get; set; }
         /// <summary> Софт на компьютере </summary>
         public SoftBase Soft { get; set; }
-
         /// <summary> Часы игровые - таймер </summary>
         public DateTimerBase Timer { get; set; }
         /// <summary> Работа игрока </summary>
@@ -46,7 +45,7 @@ namespace CompManBase.WinModels
             Work.Work = 0;
             Happy = new Happy(Player, Soft);
             Torrent = new Torrent(Timer, Player, Soft);
-            Hack = new Hack();
+            Hack = new Hack(Player);
             Forum = new Forum(Player, (Hack)Hack);
 
         }
@@ -60,13 +59,19 @@ namespace CompManBase.WinModels
             {
                 if (value == _title) return;
                 _title = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
+                Changed(nameof(Title));
             }
         }
+
+
+
+
         #endregion
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-
+        private void Changed(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

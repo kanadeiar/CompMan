@@ -101,6 +101,7 @@ namespace CompManBase.Models
         }
 
         /////////////////////////////////////////////////////////////////////
+        #region Данные
         public struct HardCpt
         {
             /// <summary> Уровень железа </summary>
@@ -118,7 +119,6 @@ namespace CompManBase.Models
             Video,
             Internet,
         }
-        #region Данные
         public static HardCpt[] PlatformNames = new[]
         {
             new HardCpt { Level = 0, Name ="нет компьютера", Cost = 0 },
