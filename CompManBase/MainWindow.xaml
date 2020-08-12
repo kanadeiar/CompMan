@@ -125,7 +125,7 @@
                         <Button x:Name="ButtonHappy" Content="Развлечься" Margin="1" Click="ButtonHappy_Click"/>
                         <Button x:Name="ButtonTorrents" Content="Торрент-трекер" Margin="1" Click="ButtonTorrents_Click"/>
                         <Button x:Name="ButtonForums" Content="Интернет-форум" Margin="1" Click="ButtonForums_Click"/>
-                        <Button x:Name="ButtonHack" Content="Хакерство" Margin="1"/>
+                        <Button x:Name="ButtonHack" Content="Хакерство" Margin="1" Click="ButtonHack_OnClick"/>
                     </StackPanel>
                 </GroupBox>
             </Grid>

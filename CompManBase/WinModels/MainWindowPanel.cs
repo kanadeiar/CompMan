@@ -29,14 +29,14 @@ namespace CompManBase.WinModels
         /// <summary> Форум </summary>
         public ForumBase Forum { get; set; }
         /// <summary> Хакерство </summary>
-        public IHackPrograms Hack { get; set; }
+        public HackBase Hack { get; set; }
 
         public MainWindowPanel()
         {
             Timer = new DateTimer();
             Player = new Player(Timer)
             {
-                State = 0,
+                State = 2,
                 Money = 900000,
                 Happy = 100,
             };
@@ -47,7 +47,8 @@ namespace CompManBase.WinModels
             Happy = new Happy(Player, Soft);
             Torrent = new Torrent(Timer, Player, Soft);
             Hack = new Hack();
-            Forum = new Forum(Player, Hack);
+            Forum = new Forum(Player, (Hack)Hack);
+
         }
 
 

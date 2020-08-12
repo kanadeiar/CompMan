@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CompManBase.Models;
+using CompManBase.WinModels;
 
 namespace CompManBase.Windows
 {
@@ -19,14 +21,20 @@ namespace CompManBase.Windows
     /// </summary>
     public partial class HackWindow : Window
     {
-        public HackWindow()
+        private HackWindowPanel _panel;
+        public HackWindow(HackBase hack)
         {
             InitializeComponent();
+            _panel = new HackWindowPanel((Hack)hack);
         }
-
         private void HackWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            HackWindowPanel.DataContext = _panel;
+        }
+
+        private void ButtonClose_OnClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

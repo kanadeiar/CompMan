@@ -110,6 +110,7 @@
     </Compile>
     <Compile Include="WinModels\ComputerWindowPanel.cs" />
     <Compile Include="WinModels\ForumWindowPanel.cs" />
+    <Compile Include="WinModels\HackWindowPanel.cs" />
     <Compile Include="WinModels\HappyWindowPanel.cs" />
     <Compile Include="WinModels\MainWindowPanel.cs" />
     <Compile Include="WinModels\SoftWindowPanel.cs" />

@@ -93,10 +93,16 @@ namespace CompManBase
             window.ShowDialog();
         }
 
-
+        private void ButtonHack_OnClick(object sender, RoutedEventArgs e)
+        {
+            HackWindow window = new HackWindow(_panel.Hack);
+            window.Owner = Window.GetWindow(this);
+            window.ShowDialog();
+        }
 
 
         #endregion
+
 
 
     }

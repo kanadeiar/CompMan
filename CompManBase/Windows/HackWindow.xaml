@@ -5,10 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CompManBase.Windows"
         mc:Ignorable="d"
-        Title="Хакерство" Height="400" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="HackWindow_OnLoaded" ShowInTaskbar="False" Background="#FFFFCEDD">
+        Title="Хакерство" Height="300" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="HackWindow_OnLoaded" ShowInTaskbar="False" Background="#FFFFCEDD">
     <Window.Resources>
     </Window.Resources>
-    <Grid>
-        
+    <Grid x:Name="HackWindowPanel">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Программы в наличии:">
+            <ListBox x:Name="ListBoxPrograms" ItemsSource="{Binding Path=ProgramsStrs}">
+
+            </ListBox>
+        </GroupBox>
+        <GroupBox Header="Задание:" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="TextBoxTextMission" Margin="5"/>
+                <Button Grid.Row="1" x:Name="ButtonGo" Content="Рискнуть!" Width="100" HorizontalAlignment="Right" Margin="5"/>
+            </Grid>
+
+        </GroupBox>
+
+        <Button x:Name="ButtonClose" Click="ButtonClose_OnClick" Grid.Row="1" Grid.Column="2" Width="150" Margin="5" Content="Закрыть"/>
     </Grid>
 </Window>
