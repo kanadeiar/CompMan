@@ -18,12 +18,11 @@ namespace CompManBase.WinModels
         public HackMissionWindowPanel(Hack hack)
         {
             Hack = hack;
+            //MissionText = Hack.GetNewMission().Name;
         }
         #region Свойства - зависимости
 
-
-
-
+        public string MissionText => Hack.GetNewMission().Name;
 
         #endregion
         public event PropertyChangedEventHandler PropertyChanged;

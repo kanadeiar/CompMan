@@ -9,6 +9,15 @@
     <Window.Resources>
     </Window.Resources>
     <Grid x:Name="HackMissionWindowPanel">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+            <TextBlock x:Name="TextBoxTask" Text="{Binding Path=MissionText, StringFormat=Текущеезадание: {0}}"/>
+
+        </StackPanel>
+        <Button Grid.Row="2" x:Name="ButtonLeave" Content="Смыться" Width="200" HorizontalAlignment="Left" Margin="5" Click="ButtonLeave_OnClick"/>
     </Grid>
 </Window>

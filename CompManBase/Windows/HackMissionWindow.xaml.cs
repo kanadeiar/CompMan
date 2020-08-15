@@ -31,5 +31,10 @@ namespace CompManBase.Windows
         {
             HackMissionWindowPanel.DataContext = _panel;
         }
+
+        private void ButtonLeave_OnClick(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
     }
 }

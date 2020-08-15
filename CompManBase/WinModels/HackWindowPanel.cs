@@ -18,7 +18,7 @@ namespace CompManBase.WinModels
         public HackWindowPanel(Hack hack)
         {
             Hack = hack;
-            MissionText = Hack.GetNewMission().Name;
+            MissionText = Hack.GetNewMission().MissionText;
         }
 
         #region Свойства - зависимости
