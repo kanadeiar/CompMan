@@ -20,17 +20,17 @@
     <DockPanel x:Name="MainWindowPanel" DataContext="{StaticResource _sample}">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Игра">
-                <MenuItem Header="Новая"/>
+                <MenuItem Header="Новая" IsEnabled="False"/>
                 <Separator/>
-                <MenuItem Header="Загрузить"/>
-                <MenuItem Header="Сохранить"/>
+                <MenuItem Header="Загрузить" IsEnabled="False"/>
+                <MenuItem Header="Сохранить" IsEnabled="False"/>
                 <Separator/>
-                <MenuItem Header="Выход"/>
+                <MenuItem Header="Выход" IsEnabled="False"/>
             </MenuItem>
             <MenuItem Header="Помощь">
-                <MenuItem Header="Описание"/>
+                <MenuItem Header="Описание" IsEnabled="False"/>
                 <Separator/>
-                <MenuItem Header="О программе..."/>
+                <MenuItem Header="О программе..." IsEnabled="False"/>
             </MenuItem>
         </Menu>
         <Grid>
