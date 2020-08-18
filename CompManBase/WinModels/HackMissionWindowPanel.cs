@@ -24,11 +24,20 @@ namespace CompManBase.WinModels
 
         public string MissionText => Hack.GetNewMission().Name;
 
+        public IEnumerable<HackProgram> HackPrograms => Hack.HackPrograms.Select(p => new HackProgram {Id = p.Id, Name = p.Name });
+
         #endregion
         public event PropertyChangedEventHandler PropertyChanged;
         protected void Changed(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public struct HackProgram
+        {
+            /// <summary> Идентификатор </summary>
+            public int Id { get; set; }
+            /// <summary> Название </summary>
+            public string Name { get; set; }
         }
     }
 }

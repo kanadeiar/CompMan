@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ComboBox x:Name="ComboBoxMessages" Margin="3" Height="20" ItemsSource="{Binding Path=ForumMessages}" DisplayMemberPath="Title"/>
+            <ComboBox x:Name="ComboBoxMessages" Margin="3" Height="26" ItemsSource="{Binding Path=ForumMessages}" DisplayMemberPath="Title"/>
             <Button Grid.Column="1" x:Name="ButtonDo" Content="{Binding ElementName=ComboBoxMessages, Path=SelectedItem.DoName}" Click="ButtonDo_OnClick" Margin="3"/>
         </Grid>
         <Grid Grid.Row="2">
