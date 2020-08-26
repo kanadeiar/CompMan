@@ -22,8 +22,11 @@ namespace CompManBase.WinModels
         {
             Hack = hack;
             MissionText = string.Empty;
-            Task.Run(() => {Mission1();});
+            Task.Run(() => { Hack.Mission1(AddMissionText, ClearMissionText); });
         }
+
+
+
         #region Свойства - зависимости
 
         public string MissionNameText => Hack.GetNewMission().Name;
@@ -40,24 +43,36 @@ namespace CompManBase.WinModels
             }
         }
 
-        #endregion
-
-        #region Задачи
-        /// <summary> Скачивание софта с запрещенного ресурса </summary>
-        public void Mission1()
+        private void AddMissionText(string text)
         {
-            MissionText = "Соединение с заблокированным запрещенным ресурсом www.torrents.com - .";
-            for (int i = 0; i < 10; i++)
-            {
-                Thread.Sleep(1000);
+            MissionText += text;
+        }
 
-
-                MissionText += ".";
-            }
-            MissionText += "\nСоединение с запрещенным ресурсом недоступно";
+        private void ClearMissionText()
+        {
+            MissionText = string.Empty;
         }
 
         #endregion
+
+
+        #region Задачи
+        /// <summary> Скачивание софта с запрещенного ресурса </summary>
+        //public void Mission1()
+        //{
+        //    MissionText = "Соединение с заблокированным запрещенным ресурсом www.torrents.com - .";
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        Thread.Sleep(1000);
+
+
+        //        MissionText += ".";
+        //    }
+        //    MissionText += "\nСоединение с запрещенным ресурсом недоступно";
+        //}
+
+        #endregion
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void Changed(string propertyName)
