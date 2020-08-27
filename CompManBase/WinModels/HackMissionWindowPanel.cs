@@ -22,7 +22,13 @@ namespace CompManBase.WinModels
         {
             Hack = hack;
             MissionText = string.Empty;
-            Task.Run(() => { Hack.Mission1(AddMissionText, ClearMissionText); });
+            switch (Hack.CurrentMission.Id)
+            {
+                case 1: Task.Run(() => { Hack.Mission1(AddMissionText, ClearMissionText); });
+                    break;
+                default:
+                    break;
+            }
         }
 
 
@@ -57,19 +63,12 @@ namespace CompManBase.WinModels
 
 
         #region Задачи
-        /// <summary> Скачивание софта с запрещенного ресурса </summary>
-        //public void Mission1()
-        //{
-        //    MissionText = "Соединение с заблокированным запрещенным ресурсом www.torrents.com - .";
-        //    for (int i = 0; i < 10; i++)
-        //    {
-        //        Thread.Sleep(1000);
-
-
-        //        MissionText += ".";
-        //    }
-        //    MissionText += "\nСоединение с запрещенным ресурсом недоступно";
-        //}
+        /// <summary> Применение программы </summary>
+        public void UseProgram(object selectedItem)
+        {
+            int id = ((HackProgram)selectedItem).Id;
+            Hack.UseProgramId(id);
+        }
 
         #endregion
 

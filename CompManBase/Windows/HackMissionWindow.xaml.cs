@@ -36,5 +36,12 @@ namespace CompManBase.Windows
         {
             DialogResult = false;
         }
+
+        private void ButtonUse_Click(object sender, RoutedEventArgs e)
+        {
+            if (ComboBoxPrograms.SelectedItem == null)
+                return;
+            _panel.UseProgram(ComboBoxPrograms.SelectedItem);
+        }
     }
 }
