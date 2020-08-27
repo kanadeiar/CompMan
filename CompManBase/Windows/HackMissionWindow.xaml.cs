@@ -39,7 +39,13 @@ namespace CompManBase.Windows
 
         private void ButtonUse_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
 
+=======
+            if (ComboBoxPrograms.SelectedItem == null)
+                return;
+            _panel.UseProgram(ComboBoxPrograms.SelectedItem);
+>>>>>>> 56d5b058d2aac906ed5ca96168fd343850457417
         }
     }
 }

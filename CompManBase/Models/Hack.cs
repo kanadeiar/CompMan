@@ -17,10 +17,14 @@ namespace CompManBase.Models
         private IWallet _wallet; //кошелек игрока
 
         private bool AnonimaizerDone; //применение анонимайзера
+        private bool PasswordDone; //подбор пароля
+        private bool MaskDone; //применение маскировки
+
         public Hack(IPlayer player) : base()
         {
             HackPrograms = new ObservableCollection<HackProgram>();
             _states = player;
+            _wallet = player;
         }
         /// <summary> Программы в наличии </summary>
         public IEnumerable<HackProgram> HackPrograms { get; set; }
@@ -61,10 +65,10 @@ namespace CompManBase.Models
                 addMissionText.Invoke(".");
                 i--;
             }
-            addMissionText.Invoke("\nСкачивание софта с запрещенного ресурса .");
-            for (int j = 0; j < 6; j++)
+            addMissionText.Invoke("\nАнонимайзер успешно применен!\n\nСкачивание софта с запрещенного ресурса .");
+            for (int j = 0; j < 10; j++)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 addMissionText.Invoke(".");
             }
             addMissionText.Invoke("\nСофт успешно скачан");
@@ -73,11 +77,22 @@ namespace CompManBase.Models
         }
 
         /// <summary>
-        /// Применение анонимайзера
+        /// Применение программы
         /// </summary>
-        public void UseAnonimaizer()
+        public void UseProgramId(int id)
         {
-            AnonimaizerDone = true;
+            switch (id)
+            {
+                case 1: AnonimaizerDone = true;
+                    break;
+                case 2: PasswordDone = true;
+                    break;
+                case 3: MaskDone = true;
+                    break;
+                default:
+                    break;
+            }
+            
         }
         #endregion
 
