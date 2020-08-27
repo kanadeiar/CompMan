@@ -36,5 +36,10 @@ namespace CompManBase.Windows
         {
             DialogResult = false;
         }
+
+        private void ButtonUse_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -30,7 +30,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <ComboBox x:Name="ComboBoxPrograms" ItemsSource="{Binding Path=HackPrograms}" DisplayMemberPath="Name" Margin="3" Height="26"/>
-                    <Button Grid.Column="1" x:Name="ButtonUse" Content="Использовать!" Margin="3"/>
+                    <Button Grid.Column="1" x:Name="ButtonUse" Content="Использовать!" Margin="3" Click="ButtonUse_Click"/>
                 </Grid>
             </Grid>
         </GroupBox>
