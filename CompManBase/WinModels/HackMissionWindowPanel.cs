@@ -26,6 +26,10 @@ namespace CompManBase.WinModels
             {
                 case 1: Task.Run(() => { Hack.Mission1(AddMissionText, ClearMissionText); });
                     break;
+                case 2: Task.Run(() => { Hack.Mission2(AddMissionText, ClearMissionText); });
+                    break;
+                case 3: Task.Run(() => { Hack.Mission3(AddMissionText, ClearMissionText); });
+                    break;
                 default:
                     break;
             }
@@ -37,6 +41,7 @@ namespace CompManBase.WinModels
 
         public string MissionNameText => Hack.GetNewMission().Name;
         public IEnumerable<HackProgram> HackPrograms => Hack.HackPrograms.Select(p => new HackProgram {Id = p.Id, Name = p.Name });
+        
         /// <summary> Текст выполнения миссии взлома </summary>
         public string MissionText
         {

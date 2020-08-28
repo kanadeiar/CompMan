@@ -15,6 +15,7 @@ namespace CompManBase.Models
         Random rand = new Random();
         private IStates _states; //состояние игрока
         private IWallet _wallet; //кошелек игрока
+        private IChangeScore _score; //счет игрока
 
         private bool AnonimaizerDone; //применение анонимайзера
         private bool PasswordDone; //подбор пароля
@@ -25,6 +26,7 @@ namespace CompManBase.Models
             HackPrograms = new ObservableCollection<HackProgram>();
             _states = player;
             _wallet = player;
+            _score = player;
         }
         /// <summary> Программы в наличии </summary>
         public IEnumerable<HackProgram> HackPrograms { get; set; }
@@ -43,7 +45,7 @@ namespace CompManBase.Models
             ((ObservableCollection<HackProgram>)HackPrograms).Add(new HackProgram {Id = id, Name = HackProgramsNames.First(p => p.Id == id).Name});
         }
 
-        #region Задачи
+        #region Задания
         
         /// <summary> Скачивание софта с запрещенного ресурса </summary>
         public void Mission1(Action<string> addMissionText, Action clearMissionText)
@@ -65,15 +67,139 @@ namespace CompManBase.Models
                 addMissionText.Invoke(".");
                 i--;
             }
-            addMissionText.Invoke("\nАнонимайзер успешно применен!\n\nСкачивание софта с запрещенного ресурса .");
+            addMissionText.Invoke("\nАнонимайзер успешно применен!\n\nСкачивание софта с запрещенного ресурса -");
+            for (int j = 0; j < 10; j++)
+            {
+                Thread.Sleep(500);
+                addMissionText.Invoke("-");
+            }
+            addMissionText.Invoke("\nСофт успешно скачан");
+            addMissionText.Invoke("\n\nМиссия выполнена! +1000 рублей");
+            _wallet.Add(1000);
+            _score.Add(1);
+        }
+
+        /// <summary> Взлом аккаунта пользователя </summary>
+        public void Mission2(Action<string> addMissionText, Action clearMissionText)
+        {
+            clearMissionText.Invoke();
+            addMissionText.Invoke("Соединение с API социальной сети \"Вконтакте\" api.vk.com");
+            addMissionText.Invoke("\nУстановка соединения, необходимо применить анонимайзер .");
+            AnonimaizerDone = false;
+            int i = 10;
+            while (i >= 0 && !AnonimaizerDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nСоединение с ресурсом не удалось");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nСоединение установлено.\n\nВвод логина пользователя:> #");
+            for (int j = 0; j < 6; j++)
+            {
+                Thread.Sleep(1000);
+                addMissionText.Invoke("#");
+            }
+            addMissionText.Invoke("\nВвод пароля, необходимо применить программу подбора паролей .");
+            PasswordDone = false;
+            i = 10;
+            while (i >= 0 && !PasswordDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время ввода пароля");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешный вход в аккаунт пользователя\n\nСкачивание секретной информации с аккаунта пользователя .");
             for (int j = 0; j < 10; j++)
             {
                 Thread.Sleep(500);
                 addMissionText.Invoke(".");
             }
-            addMissionText.Invoke("\nСофт успешно скачан");
-            addMissionText.Invoke("\n\nМиссия выполнена! +1000 рублей");
-            _wallet.Add(1000);
+            addMissionText.Invoke("\nСекретная информация успешно скачана");
+            addMissionText.Invoke("\n\nМиссия выполнена! +5000 рублей");
+            _wallet.Add(5000);
+            _score.Add(1);
+        }
+
+        /// <summary> Взлом сайта банка </summary>
+        public void Mission3(Action<string> addMissionText, Action clearMissionText)
+        {
+            clearMissionText.Invoke();
+            addMissionText.Invoke("Соединение с SSH сайта банка ssh.homebank.ru");
+            addMissionText.Invoke("\nУстановка соединения, необходимо применить анонимайзер .");
+            AnonimaizerDone = false;
+            int i = 10;
+            while (i >= 0 && !AnonimaizerDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nНе удалось соединиться с банком.");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nСоединение с банком установлено.\n\nПроцедура валидации устройства пользователя, необходимо применить маскировку .");
+            MaskDone = false;
+            i = 10;
+            while (i >= 0 && !MaskDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nУстройство пользователя не подтверждено, доступ откленен.");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nПроверка пройдена.\n\nПолучение доступа. Ввод пароля пользователя:> *");
+            PasswordDone = false;
+            i = 10;
+            while (i >= 0 && !PasswordDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время ввода пароля");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 50000 рублей!");
+                    _wallet.Substract(50000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke("*");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешный получение доступа.\n\nСкачивание секретной информации с сервера банка -");
+            for (int j = 0; j < 10; j++)
+            {
+                Thread.Sleep(500);
+                addMissionText.Invoke("-");
+            }
+            addMissionText.Invoke("\nСекретная информация успешно скачана\n\nРазмещение фальшивой информации на сервере банка |");
+            for (int j = 0; j < 10; j++)
+            {
+                Thread.Sleep(500);
+                addMissionText.Invoke("|");
+            }
+            addMissionText.Invoke("\nФальшивая информация успешно размещена на сервере банка.");
+            addMissionText.Invoke("\n\nМиссия выполнена! +10000 рублей");
+            _wallet.Add(10000);
+            _score.Add(1);
         }
 
         /// <summary>
@@ -108,8 +234,9 @@ namespace CompManBase.Models
         }
         private static HackMission[] _hackMissions = new[]
         {
-            new HackMission{Id = 1, Name = "Скачивание софта с запрещенного ресурса", MissionText = "Очень простая учебная задача. Необходимо скачать софт с запрещенного заблорикованного в Интренете ресурса используя анонимайзер. Плата - 1000 рублей.", NeedLevel = 1},
-            new HackMission{Id = 2, Name = "Взлом аккаунта пользователя", MissionText = "Простое задание. Взломать аккаунт у пользователя в социальной сети и скачать с него секретную информацию. Плата - 5000 рублей", NeedLevel = 2},
+            new HackMission{Id = 1, Name = "Скачивание софта с запрещенного ресурса", MissionText = "Очень простая учебная задача. Необходимо скачать софт с запрещенного заблорикованного в Интренете ресурса используя анонимайзер. Плата - 1000 рублей.", NeedLevel = 3},
+            new HackMission{Id = 2, Name = "Взлом аккаунта пользователя", MissionText = "Простое задание. Взломать аккаунт у пользователя в социальной сети и скачать с него секретную информацию. Плата - 5000 рублей.", NeedLevel = 4},
+            new HackMission{Id = 3, Name = "Взлом сайта банка", MissionText = "Взломать защищенный сайт филиала банка, скачать секретную информацию, разместить на нем фальшивую информацию. Плата - 10000 рублей. Штраф - 50000 рублей.", NeedLevel = 4},
         };
         #endregion
     }

@@ -39,8 +39,8 @@ namespace CompManBase.Models
         #region Данные
         public static ForumMessage[] ForumMessages = new[]
         {
-            new ForumMessage { Id = 1, NeedLevel = 2, Title = "Продажа простого анонимайзера", Message = "Продается простая программа-анонимайзер доступа в Интернет за 10000 рублей", DoName = "Купить"},
-            new ForumMessage { Id = 2, NeedLevel = 3, Title = "Продажа программы подбора паролей", Message = "Продается программа подбора паролей за 25000 рублей", DoName = "Купить"},
+            new ForumMessage { Id = 1, NeedLevel = 3, Title = "Продажа простого анонимайзера", Message = "Продается простая программа-анонимайзер доступа в Интернет за 10000 рублей", DoName = "Купить"},
+            new ForumMessage { Id = 2, NeedLevel = 4, Title = "Продажа программы подбора паролей", Message = "Продается программа подбора паролей за 25000 рублей", DoName = "Купить"},
             new ForumMessage { Id = 3, NeedLevel = 4, Title = "Обмен программы маскировки", Message = "Меняю программу-маскировку на программу подбра паролей", DoName = "Обменять"},
         };
         #endregion
