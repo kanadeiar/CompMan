@@ -5,12 +5,15 @@ using System.Diagnostics;
 using System.Windows;
 using System;
 using static CompManBase.Models.PlayerBase;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace CompManBase.WinModels
 {
     public class MainWindowPanel : INotifyPropertyChanged
     {
         private string _title = "Компьютерщик";
+        private string _helpString = "Подсказка";
         /// <summary> Игрок </summary>
         public PlayerBase Player { get; set; }
         /// <summary> Компьютер </summary>
@@ -47,7 +50,7 @@ namespace CompManBase.WinModels
             Torrent = new Torrent(Timer, Player, Soft);
             Hack = new Hack(Player);
             Forum = new Forum(Player, (Hack)Hack);
-
+            Task.Run(() => { GoHelpString(); });
         }
 
 
@@ -62,9 +65,35 @@ namespace CompManBase.WinModels
                 Changed(nameof(Title));
             }
         }
+        public string HelpString
+        {
+            get => _helpString;
+            set
+            {
+                if (value == _helpString) return;
+                _helpString = value;
+                Changed(nameof(HelpString));
+            }
+        }
+        #endregion
 
-
-
+        #region Подсказка
+        private void GoHelpString()
+        {
+            HelpString = "Добро пожаловать в игру \"Компьютерщик\"!";
+            Thread.Sleep(10000);
+            HelpString = "Для начала купите самый простой, самый древний и дешевый компьютер!";
+            Thread.Sleep(30000);
+            HelpString = "Установите на ваш компьютер операционную систему, веб-браузер, антивирус, среду программирования!";
+            Thread.Sleep(30000);
+            HelpString = "Найдите подходящую работу по своему уровню!";
+            Thread.Sleep(30000);
+            HelpString = "Регулярно заходите на торрент-сайты для обмена софтом с другими людьми, это повышает Ваш авторитет!";
+            Thread.Sleep(30000);
+            HelpString = "После того как вырастите, можно будет заняться хакерством!";
+            Thread.Sleep(30000);
+            HelpString = "Играйте в игру \"Компьютерщик\"!";
+        }
 
         #endregion
 
