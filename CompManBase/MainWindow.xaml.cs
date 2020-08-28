@@ -81,13 +81,13 @@ namespace CompManBase
         }
         private void ButtonForums_Click(object sender, RoutedEventArgs e)
         {
-            //доступ к торрентам - только если подключен интернет и есть браузер
-            //bool mayTorrent = ((IInfoComputer)_panel.Computer).GetLevel(Internet) > 0 && ((IInfoSoft)_panel.Soft).GetInfo(SoftBase.Parts.Browser) > 0;
-            //if (!mayTorrent)
-            //{
-            //    MessageBox.Show("Для доступа к интернет-форуму должен быть подключен интернет и должен быть установлен любой браузер!", "Интернет-форум недоступен", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    return;
-            //}
+            //доступ к форуму - только если подключен интернет и есть браузер
+            bool mayTorrent = ((IInfoComputer)_panel.Computer).GetLevel(Internet) > 0 && ((IInfoSoft)_panel.Soft).GetInfo(SoftBase.Parts.Browser) > 0;
+            if (!mayTorrent)
+            {
+                MessageBox.Show("Для доступа к интернет-форуму должен быть подключен интернет и должен быть установлен любой браузер!", "Интернет-форум недоступен", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             ForumWindow window = new ForumWindow(_panel.Forum);
             window.Owner = Window.GetWindow(this);
             window.ShowDialog();
@@ -95,6 +95,13 @@ namespace CompManBase
 
         private void ButtonHack_OnClick(object sender, RoutedEventArgs e)
         {
+            //доступ к хакерству - только если подключен интернет и есть браузер
+            bool mayTorrent = ((IInfoComputer)_panel.Computer).GetLevel(Internet) > 0 && ((IInfoSoft)_panel.Soft).GetInfo(SoftBase.Parts.Browser) > 0;
+            if (!mayTorrent)
+            {
+                MessageBox.Show("Для доступа к хакерству должен быть подключен интернет и должен быть установлен любой браузер!", "Хакерство недоступно", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             HackWindow window = new HackWindow(_panel.Hack);
             window.Owner = Window.GetWindow(this);
             window.ShowDialog();
