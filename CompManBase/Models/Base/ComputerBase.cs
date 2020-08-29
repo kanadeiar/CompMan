@@ -31,6 +31,7 @@ namespace CompManBase.Models
                 default: throw new InvalidEnumArgumentException("Неверный компонент компьютера!");
             }
         }
+
         #region Свойства-зависимости
         public int Platform
         {
