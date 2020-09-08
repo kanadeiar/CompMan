@@ -32,7 +32,8 @@ namespace CompManBase.WinModels
         public ForumBase Forum { get; set; }
         /// <summary> Хакерство </summary>
         public HackBase Hack { get; set; }
-
+        /// <summary> Случайные события </summary>
+        public EventsBase Events { get; set; }
         public MainWindowPanel()
         {
             Timer = new DateTimer();
@@ -50,6 +51,7 @@ namespace CompManBase.WinModels
             Torrent = new Torrent(Timer, Player, Soft);
             Hack = new Hack(Player);
             Forum = new Forum(Player, (Hack)Hack);
+            Events = new Events(Timer);
             Task.Run(() => { GoHelpString(); });
         }
 

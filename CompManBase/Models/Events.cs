@@ -10,7 +10,7 @@ namespace CompManBase.Models
 {
     public class Events : EventsBase
     {
-
+        private Random _rand = new Random();
         public Events(IDateTimerEvent timer) : base()
         {
             timer.NextDayEvent += DayUpdate;
