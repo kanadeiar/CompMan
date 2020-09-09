@@ -61,7 +61,7 @@ namespace CompManBase.Models
                 Changed(nameof(Level));
             }
         }
-        public int Level { get => StateNames[State + 1].Level; }
+        public int Level { get => StateNames[State].Level + 1; }
         public int Score
         {
             get => _score;

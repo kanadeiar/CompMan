@@ -33,6 +33,14 @@ namespace CompManBase.WinModels
                     break;
                 case 3: Forum.BuyProgram3();
                     break;
+                case 4: Forum.BuyProgram4();
+                    break;
+                case 5: Forum.BuyProgram5();
+                    break;
+                case 6: Forum.BuyProgram6();
+                    break;
+                case 7: Forum.BuyProgram7();
+                    break;
                 default: return;
             }
         }

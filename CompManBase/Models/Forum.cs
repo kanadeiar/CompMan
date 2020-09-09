@@ -71,6 +71,69 @@ namespace CompManBase.Models
             }
             _hackPrograms.AddHackProgram(3);
         }
+        /// <summary> Обмен программы подбора паролей </summary>
+        public void BuyProgram4()
+        {
+            if (_hackPrograms.HackPrograms.Count(p => p.Id == 1) == 0)
+            {
+                MessageBox.Show("У вас нет в наличии для обмена программы - анонимайзера!", "Облом", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            if (_hackPrograms.HackPrograms.Count(p => p.Id == 2) != 0)
+            {
+                MessageBox.Show("У вас уже есть такая программа!", "Хватит и одной!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            _hackPrograms.AddHackProgram(2);
+        }
+        /// <summary> Продажа программы ДДОС-атаки </summary>
+        public void BuyProgram5()
+        {
+            if (!_wallet.MaySubsctact(100_000))
+            {
+                MessageBox.Show("Не хватает денег для покупки этой программы!", "Облом", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            if (_hackPrograms.HackPrograms.Count(p => p.Id == 4) != 0)
+            {
+                MessageBox.Show("У вас уже есть такая программа!", "Хватит и одной!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            _wallet.Substract(100_000);
+            _hackPrograms.AddHackProgram(4);
+        }
+        /// <summary> Продажа программы использования VPN-туннелей </summary>
+        public void BuyProgram6()
+        {
+            if (!_wallet.MaySubsctact(200_000))
+            {
+                MessageBox.Show("Не хватает денег для покупки этой программы!", "Облом", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            if (_hackPrograms.HackPrograms.Count(p => p.Id == 5) != 0)
+            {
+                MessageBox.Show("У вас уже есть такая программа!", "Хватит и одной!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            _wallet.Substract(200_000);
+            _hackPrograms.AddHackProgram(5);
+        }
+        /// <summary> Продажа программы шифратора/дешифратора </summary>
+        public void BuyProgram7()
+        {
+            if (!_wallet.MaySubsctact(1_000_000))
+            {
+                MessageBox.Show("Не хватает денег для покупки этой программы!", "Облом", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            if (_hackPrograms.HackPrograms.Count(p => p.Id == 6) != 0)
+            {
+                MessageBox.Show("У вас уже есть такая программа!", "Хватит и одной!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            _wallet.Substract(1_000_000);
+            _hackPrograms.AddHackProgram(6);
+        }
         #endregion
     }
 }

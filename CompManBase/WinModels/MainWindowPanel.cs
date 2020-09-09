@@ -39,8 +39,8 @@ namespace CompManBase.WinModels
             Timer = new DateTimer();
             Player = new Player(Timer)
             {
-                State = 0,
-                Money = 9000,
+                State = 5,
+                Money = 900000,
                 Happy = 100,
             };
             Computer = new Computer(Player);
