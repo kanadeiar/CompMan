@@ -51,7 +51,7 @@ namespace CompManBase.WinModels
             Torrent = new Torrent(Timer, Player, Soft);
             Hack = new Hack(Player);
             Forum = new Forum(Player, (Hack)Hack);
-            Events = new Events(Timer);
+            Events = new Events(Timer, Player, Soft, Soft, Computer);
             Task.Run(() => { GoHelpString(); });
         }
 

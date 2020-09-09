@@ -25,7 +25,7 @@ namespace CompManBase.Models
         {
             /// <summary> Идентификатор </summary>
             public int Id;
-            /// <summary> Вероятность 0 - 100 % каждый час </summary>
+            /// <summary> Вероятность 0 - 100 % каждый день </summary>
             public float May;
             /// <summary> Название события </summary>
             public string Name;
@@ -33,8 +33,8 @@ namespace CompManBase.Models
 
         public static MyEvent[] MyEvents = new[]
         {
-            new MyEvent{Id = 1, May = 0.1F, Name = "Компьютерный вирус атаковал ваш компьютер!"},
-            new MyEvent{Id = 2, May = 0.01F, Name = "Сломался компьютер! Требуется срочный ремонт!"},
+            new MyEvent{Id = 1, May = 10F, Name = "Компьютерный вирус атаковал ваш компьютер!"},
+            new MyEvent{Id = 2, May = 5F, Name = "Сломался компьютер! Требуется срочный ремонт!"},
         };
 
         #endregion
