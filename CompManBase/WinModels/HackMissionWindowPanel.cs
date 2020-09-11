@@ -30,16 +30,15 @@ namespace CompManBase.WinModels
                     break;
                 case 3: Task.Run(() => { Hack.Mission3(AddMissionText, ClearMissionText); });
                     break;
+                case 4: Task.Run(() => { Hack.Mission4(AddMissionText, ClearMissionText); });
+                    break;
                 default:
                     break;
             }
         }
-
-
-
         #region Свойства - зависимости
 
-        public string MissionNameText => Hack.GetNewMission().Name;
+        public string MissionNameText => Hack.CurrentMission.Name;
         public IEnumerable<HackProgram> HackPrograms => Hack.HackPrograms.Select(p => new HackProgram {Id = p.Id, Name = p.Name });
         
         /// <summary> Текст выполнения миссии взлома </summary>

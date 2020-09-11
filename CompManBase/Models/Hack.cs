@@ -20,6 +20,7 @@ namespace CompManBase.Models
         private bool AnonimaizerDone; //применение анонимайзера
         private bool PasswordDone; //подбор пароля
         private bool MaskDone; //применение маскировки
+        private bool DDOSDone; //применение ДДОС атаки
 
         public Hack(IPlayer player) : base()
         {
@@ -136,7 +137,7 @@ namespace CompManBase.Models
         public void Mission3(Action<string> addMissionText, Action clearMissionText)
         {
             clearMissionText.Invoke();
-            addMissionText.Invoke("Соединение с SSH сайта банка ssh.homebank.ru");
+            addMissionText.Invoke("Соединение с консолью администрирования SSH сайта банка ssh.homebank.ru");
             addMissionText.Invoke("\nУстановка соединения, необходимо применить анонимайзер .");
             AnonimaizerDone = false;
             int i = 10;
@@ -202,6 +203,93 @@ namespace CompManBase.Models
             _score.Add(1);
         }
 
+        /// <summary> Заддосивание сайта банка </summary>
+        public void Mission4(Action<string> addMissionText, Action clearMissionText)
+        {
+            clearMissionText.Invoke();
+            addMissionText.Invoke("Соединение с консолью безопасности сайта банка secure.vkbank.ru");
+            addMissionText.Invoke("\nУстановка соединения, необходимо применить анонимайзер .");
+            AnonimaizerDone = false;
+            int i = 10;
+            while (i >= 0 && !AnonimaizerDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nНе удалось соединиться с банком.");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nСоединение с системой безопасности установлено.\n\nВНИМАНИЕ! Процедура проверки пользователя, необходимо применить маскировку .");
+            MaskDone = false;
+            i = 10;
+            while (i >= 0 && !MaskDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nВы попались! Доступ откленен.");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 1000000 рублей!");
+                    _wallet.Substract(1000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nВы успешно замаскировались.\n\nПолучение доступа. Ввод пароля пользователя:> *");
+            PasswordDone = false;
+            i = 10;
+            while (i >= 0 && !PasswordDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время ввода пароля! Вы попались!");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 1000000 рублей!");
+                    _wallet.Substract(1000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke("*");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешное получение доступа.\n\nОтключение защиты от ДДОС атак #");
+            for (int j = 0; j < 5; j++)
+            {
+                Thread.Sleep(1000);
+                addMissionText.Invoke("#");
+            }
+            addMissionText.Invoke("\nУспешное отключение защиты от ДДОС атак на 1 минуту.\nУспешный выход из системы безопасности банка.\n\nПора применять ДДОС-атаку ->");
+            DDOSDone = false;
+            i = 60;
+            while (i >= 0 && !DDOSDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время ввода отключения защиты.\n\nМиссия провалена!");
+                    _score.Substract(1);
+                    return;
+                }
+                i--;
+            }
+            addMissionText.Invoke("\nВНИМАНИЕ! Производится ДДОС Атака сайта банка! \\");
+            for (int j = 0; j < 30; j++)
+            {
+                Thread.Sleep(300);
+                addMissionText.Invoke("\\");
+            }
+
+            addMissionText.Invoke("\nДДОС атака сайта банка успешно проведена. Сайт больше не доступен клиентам.");
+            addMissionText.Invoke("\n\nМиссия выполнена! +100000 рублей");
+            _wallet.Add(100000);
+            _score.Add(1);
+        }
+
         /// <summary>
         /// Применение программы
         /// </summary>
@@ -214,6 +302,8 @@ namespace CompManBase.Models
                 case 2: PasswordDone = true;
                     break;
                 case 3: MaskDone = true;
+                    break;
+                case 4: DDOSDone = true;
                     break;
                 default:
                     break;
@@ -237,6 +327,7 @@ namespace CompManBase.Models
             new HackMission{Id = 1, Name = "Скачивание софта с запрещенного ресурса", MissionText = "Очень простая учебная задача. Необходимо скачать софт с запрещенного заблорикованного в Интренете ресурса используя анонимайзер. Плата - 1000 рублей.", NeedLevel = 3},
             new HackMission{Id = 2, Name = "Взлом аккаунта пользователя", MissionText = "Простое задание. Взломать аккаунт у пользователя в социальной сети и скачать с него секретную информацию. Плата - 5000 рублей.", NeedLevel = 4},
             new HackMission{Id = 3, Name = "Взлом сайта банка", MissionText = "Взломать защищенный сайт филиала банка, скачать секретную информацию, разместить на нем фальшивую информацию. Плата - 10000 рублей. Штраф - 50000 рублей.", NeedLevel = 4},
+            new HackMission{Id = 4, Name = "Заблокировать сайт банка", MissionText = "Заддосить защищеный сайт банка, сделать его временно недоступным для пользователей. Плата - 100000 рулей. Штраф - 1000000 рублей.", NeedLevel = 5}
         };
         #endregion
     }

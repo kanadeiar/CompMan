@@ -37,10 +37,6 @@ namespace CompManBase.WinModels
                     break;
                 case 5: Forum.BuyProgram5();
                     break;
-                case 6: Forum.BuyProgram6();
-                    break;
-                case 7: Forum.BuyProgram7();
-                    break;
                 default: return;
             }
         }

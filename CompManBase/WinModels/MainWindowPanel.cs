@@ -40,7 +40,7 @@ namespace CompManBase.WinModels
             Player = new Player(Timer)
             {
                 State = 5,
-                Money = 900000,
+                Money = 90000000,
                 Happy = 100,
             };
             Computer = new Computer(Player);
