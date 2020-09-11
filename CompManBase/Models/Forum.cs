@@ -102,6 +102,22 @@ namespace CompManBase.Models
             _wallet.Substract(100_000);
             _hackPrograms.AddHackProgram(4);
         }
+        /// <summary> Продажа программы финансовых транзакций </summary>
+        public void BuyProgram6()
+        {
+            if (!_wallet.MaySubsctact(1_000_000))
+            {
+                MessageBox.Show("Не хватает денег для покупки этой программы!", "Облом", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            if (_hackPrograms.HackPrograms.Count(p => p.Id == 5) != 0)
+            {
+                MessageBox.Show("У вас уже есть такая программа!", "Хватит и одной!", MessageBoxButton.OK, MessageBoxImage.Stop);
+                return;
+            }
+            _wallet.Substract(1_000_000);
+            _hackPrograms.AddHackProgram(5);
+        }
         #endregion
     }
 }

@@ -21,6 +21,7 @@ namespace CompManBase.Models
         private bool PasswordDone; //подбор пароля
         private bool MaskDone; //применение маскировки
         private bool DDOSDone; //применение ДДОС атаки
+        private bool Finance; //применение финансовых транзакций
 
         public Hack(IPlayer player) : base()
         {
@@ -290,6 +291,16 @@ namespace CompManBase.Models
             _score.Add(1);
         }
 
+        /// <summary> Кража денег со счетов в банке </summary>
+        public void Mission5(Action<string> addMissionText, Action clearMissionText)
+        {
+            clearMissionText.Invoke();
+
+            addMissionText.Invoke("\n\nМиссия выполнена! +300000 рублей");
+            _wallet.Add(300000);
+            _score.Add(1);
+        }
+
         /// <summary>
         /// Применение программы
         /// </summary>
@@ -304,6 +315,8 @@ namespace CompManBase.Models
                 case 3: MaskDone = true;
                     break;
                 case 4: DDOSDone = true;
+                    break;
+                case 5: Finance = true;
                     break;
                 default:
                     break;
@@ -327,7 +340,8 @@ namespace CompManBase.Models
             new HackMission{Id = 1, Name = "Скачивание софта с запрещенного ресурса", MissionText = "Очень простая учебная задача. Необходимо скачать софт с запрещенного заблорикованного в Интренете ресурса используя анонимайзер. Плата - 1000 рублей.", NeedLevel = 3},
             new HackMission{Id = 2, Name = "Взлом аккаунта пользователя", MissionText = "Простое задание. Взломать аккаунт у пользователя в социальной сети и скачать с него секретную информацию. Плата - 5000 рублей.", NeedLevel = 4},
             new HackMission{Id = 3, Name = "Взлом сайта банка", MissionText = "Взломать защищенный сайт филиала банка, скачать секретную информацию, разместить на нем фальшивую информацию. Плата - 10000 рублей. Штраф - 50000 рублей.", NeedLevel = 4},
-            new HackMission{Id = 4, Name = "Заблокировать сайт банка", MissionText = "Заддосить защищеный сайт банка, сделать его временно недоступным для пользователей. Плата - 100000 рулей. Штраф - 1000000 рублей.", NeedLevel = 5}
+            new HackMission{Id = 4, Name = "Блокирование сайта банка", MissionText = "Заддосить защищеный сайт банка, сделать его временно недоступным для пользователей. Плата - 100000 рулей. Штраф - 1000000 рублей.", NeedLevel = 5},
+            new HackMission{Id = 5, Name = "Кража денег со счетов из банка", MissionText = "Украсть деньги с нескольких счетов из банка, положить на подставной счет для последующего отмывания денег. Плата - 300000 рублей. Штраф - 3000000 рублей.", NeedLevel = 5},
         };
         #endregion
     }

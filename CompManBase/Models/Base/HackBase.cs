@@ -35,6 +35,7 @@ namespace CompManBase.Models
             new HackProgram{Id = 2, Name = "Программа подбора паролей"}, 
             new HackProgram{Id = 3, Name = "Программа маскировки"},
             new HackProgram{Id = 4, Name = "Программа ДДОС-атаки"},
+            new HackProgram{Id = 5, Name = "Программа финансовых транзакций"},
         };
         #endregion
     }

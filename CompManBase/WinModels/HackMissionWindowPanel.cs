@@ -32,6 +32,8 @@ namespace CompManBase.WinModels
                     break;
                 case 4: Task.Run(() => { Hack.Mission4(AddMissionText, ClearMissionText); });
                     break;
+                case 5: Task.Run(() => { Hack.Mission5(AddMissionText, ClearMissionText); });
+                    break;
                 default:
                     break;
             }
