@@ -1,0 +1,143 @@
+﻿<Window x:Class="CompManBase.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:l="clr-namespace:CompManBase"
+        xmlns:wm="clr-namespace:CompManBase.WinModels"
+        xmlns:m="clr-namespace:CompManBase.Models"
+        xmlns:i="clr-namespace:CompManBase.Interfaces"
+        xmlns:c="clr-namespace:CompManBase.Converters"
+        mc:Ignorable="d"
+        Title="Компьютерщик" Height="500" Width="580" WindowStartupLocation="CenterScreen" Background="#FFBFBFBF" Loaded="Window_Loaded" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <wm:MainWindowPanel x:Key="_sample">
+
+        </wm:MainWindowPanel>
+        <c:StateStringConverter x:Key="StateStringConcerter"/>
+        <c:HappyStringConverter x:Key="HappyStringConverter"/>
+    </Window.Resources>
+    <DockPanel x:Name="MainWindowPanel" DataContext="{StaticResource _sample}">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Игра">
+                <MenuItem Header="Новая" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="Загрузить" IsEnabled="False"/>
+                <MenuItem Header="Сохранить" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="Выход" IsEnabled="False"/>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="Описание" IsEnabled="False"/>
+                <Separator/>
+                <MenuItem Header="О программе..." IsEnabled="False"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid HorizontalAlignment="Left" Height="114" Margin="10,10,0,0" VerticalAlignment="Top" Width="263" Background="#FFD5FFAC">
+                <GroupBox Header="Состояние">
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockState" Text="{Binding Player.State, Converter={StaticResource StateStringConcerter}}"  HorizontalAlignment="Left" Margin="90,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,19,0,0" TextWrapping="Wrap" Text="Уровень:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockLevel" Text="{Binding Player.Level}" HorizontalAlignment="Left" Margin="90,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,37,0,0" TextWrapping="Wrap" Text="Денег:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="LabelMoney" Text="{Binding Path=Player.Money, StringFormat={}{0} рублей}" HorizontalAlignment="Left" Margin="90,35,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,55,0,0" TextWrapping="Wrap" Text="Очков:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockScore" Text="{Binding Player.Score}" HorizontalAlignment="Left" Margin="90,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,73,0,0" TextWrapping="Wrap" Text="Настроение:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockHappy" Text="{Binding Player.Happy, Converter={StaticResource HappyStringConverter}}" HorizontalAlignment="Left" Margin="90,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="140" Margin="10,129,0,0" VerticalAlignment="Top" Width="263" Background="#FFFFFF7D">
+                <GroupBox Header="Хард:">
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Платформа:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockPlatform" Text="{Binding Computer.PlatformName}" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="Память:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockRam" Text="{Binding Computer.RamName}" HorizontalAlignment="Left" Margin="90,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="Жесткий диск:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockHdd" Text="{Binding Computer.HddName}" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Видеокарта:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockVideo" Text="{Binding Computer.VideoName}" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,97,0,0" TextWrapping="Wrap" Text="Интернет:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockInternet" Text="{Binding Computer.InternetName}" HorizontalAlignment="Left" Margin="90,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                    </Grid>
+                </GroupBox>
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Апгрейд!" Click="ButtonComputer_Click"/>
+                    </ContextMenu>
+                </Grid.ContextMenu>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="150" Margin="10,274,0,0" VerticalAlignment="Top" Width="263" Background="#FFA8FBFB">
+                <GroupBox Header="Софт:">
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Система:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockOs" Text="{Binding Soft.OsName}" HorizontalAlignment="Left" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,29,0,0" TextWrapping="Wrap" Text="Программ-е:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockDevelop" Text="{Binding Soft.DevelopName}" HorizontalAlignment="Left" Margin="90,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,48,0,0" TextWrapping="Wrap" Text="Антивирус:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockAntovirus" Text="{Binding Soft.AntivirusName}" HorizontalAlignment="Left" Margin="90,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,68,0,0" TextWrapping="Wrap" Text="Игра:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockGame" Text="{Binding Soft.GameName}" HorizontalAlignment="Left" Margin="90,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,88,0,0" TextWrapping="Wrap" Text="Браузер:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="TextBlockBrowser" Text="{Binding Soft.BrowserName}" HorizontalAlignment="Left" Margin="90,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,109,0,0" TextWrapping="Wrap" Text="Другой софт:" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="LabelSoftOther" Text="{Binding Path=Soft.Other, StringFormat={}{0} Гб}" HorizontalAlignment="Left" Margin="90,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    </Grid>
+                </GroupBox>
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Установка!" Click="ButtonSoft_Click"/>
+                    </ContextMenu>
+                </Grid.ContextMenu>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="49" Margin="289,10,0,0" VerticalAlignment="Top" Width="263" Background="#FFFFCBCB">
+                <GroupBox Header="Дата и время">
+                    <Grid>
+                        <TextBlock x:Name="TextBlockDate" Text="{Binding Timer.MyDateString}"  HorizontalAlignment="Left" Margin="12,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock x:Name="TextBlockTime" Text="{Binding Timer.MyTimeString}"  HorizontalAlignment="Left" Margin="103,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                        <Button x:Name="ButtonPause" Content="{Binding Timer.TextOnButton}" HorizontalAlignment="Left" Margin="158,2,0,0" VerticalAlignment="Top" Width="91" FontSize="12" Click="ButtonPause_Click"/>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="60" Margin="289,64,0,0" VerticalAlignment="Top" Width="263" Background="#FFF7B8F2">
+                <GroupBox Header="Работа">
+                    <Grid>
+                        <TextBlock x:Name="TextBlockWork" Text="{Binding Work.WorkName}" HorizontalAlignment="Left" Margin="5,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+                        <TextBlock x:Name="TextBlockSalary" Text="{Binding Path=Work.Salary, StringFormat={}{0} руб./день}" Margin="5,18,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+                    </Grid>
+                </GroupBox>
+                <Grid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Сменить работу" Click="ButtonWork_Click"/>
+                    </ContextMenu>
+                </Grid.ContextMenu>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="202" Margin="289,129,0,0" VerticalAlignment="Top" Width="263" Background="#FFC2D5FF">
+                <GroupBox Header="Действия">
+                    <StackPanel>
+                        <Button x:Name="ButtonComputer" Click="ButtonComputer_Click" Content="Апгрейд компьютера" Margin="1"/>
+                        <Button x:Name="ButtonSoft" Click="ButtonSoft_Click" Content="Установка программ" Margin="1"/>
+                        <Button x:Name="ButtonWork" Content="Искать новую работу" Margin="1" Click="ButtonWork_Click"/>
+                        <Button x:Name="ButtonHappy" Content="Развлечься" Margin="1" Click="ButtonHappy_Click"/>
+                        <Button x:Name="ButtonTorrents" Content="Торрент-трекер" Margin="1" Click="ButtonTorrents_Click"/>
+                        <Button x:Name="ButtonForums" Content="Интернет-форум" Margin="1" Click="ButtonForums_Click"/>
+                        <Button x:Name="ButtonHack" Content="Хакерство" Margin="1" Click="ButtonHack_OnClick"/>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="88" Margin="289,336,0,0" VerticalAlignment="Top" Width="263" Background="#FFFFED9B">
+                <GroupBox Header="Подсказка" Margin="0,0,0,0">
+                    <TextBlock x:Name="TextBlockHelp" TextWrapping="Wrap" Text="{Binding Path=HelpString}"/>
+                </GroupBox>
+            </Grid>
+
+
+
+
+        </Grid>
+    </DockPanel>
+</Window>

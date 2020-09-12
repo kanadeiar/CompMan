@@ -1,0 +1,93 @@
+﻿<Window x:Class="CompManBase.Windows.HappyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompManBase.Windows"
+        mc:Ignorable="d"
+        Title="Развлечения" Height="300" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFFFBCED">
+    <Window.Resources>
+        <Style TargetType="Image" x:Key="StyleImage">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy1, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/Kefir.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy2, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/Film.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy3, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/Friends.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy4, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/HappyComputer.png"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=ButtonHappy5, Path=IsMouseOver}" Value="True">
+                    <Setter Property="Source" Value="/CompManBase;component/Images/HappyGirls.png"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="HappyWindowPanel">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="ButtonClose" Click="ButtonClose_Click" Grid.Row="1" Content="Закрыть"/>
+            <Image x:Name="ImageComputer" Style="{StaticResource ResourceKey=StyleImage}" HorizontalAlignment="Left" Height="240" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" OpacityMask="#FFD45757"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" x:Name="ButtonHappy1" IsEnabled="{Binding Happy.Happy1MayDo}" Click="ButtonHappy1_Click" Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Happy.Happy1Name}"/>
+                    <TextBlock Text=" - "/>
+                    <TextBlock Text="{Binding Happy.Happy1Cost}"/>
+                    <TextBlock Text=" рублей"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="1" x:Name="ButtonHappy2" IsEnabled="{Binding Happy.Happy2MayDo}" Margin="5" Click="ButtonHappy2_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Happy.Happy2Name}"/>
+                    <TextBlock Text=" - "/>
+                    <TextBlock Text="{Binding Happy.Happy2Cost}"/>
+                    <TextBlock Text=" рублей"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="2" x:Name="ButtonHappy3" IsEnabled="{Binding Happy.Happy3MayDo}" Margin="5" Click="ButtonHappy3_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Happy.Happy3Name}"/>
+                    <TextBlock Text=" - "/>
+                    <TextBlock Text="{Binding Happy.Happy3Cost}"/>
+                    <TextBlock Text=" рублей"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="3" x:Name="ButtonHappy4" IsEnabled="{Binding Happy.Happy4MayDo}" Margin="5" Click="ButtonHappy4_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Happy.Happy4Name}"/>
+                    <TextBlock Text=" - "/>
+                    <TextBlock Text="{Binding Happy.Happy4Cost}"/>
+                    <TextBlock Text=" рублей"/>
+                </StackPanel>
+            </Button>
+            <Button Grid.Row="4" x:Name="ButtonHappy5" IsEnabled="{Binding Happy.Happy5MayDo}" Margin="5" Click="ButtonHappy5_Click">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Happy.Happy5Name}"/>
+                    <TextBlock Text=" - "/>
+                    <TextBlock Text="{Binding Happy.Happy5Cost}"/>
+                    <TextBlock Text=" рублей"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

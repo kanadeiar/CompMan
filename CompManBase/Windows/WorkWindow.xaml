@@ -1,0 +1,150 @@
+﻿<Window x:Class="CompManBase.Windows.WorkWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CompManBase.Windows"
+        xmlns:wm="clr-namespace:CompManBase.WinModels"
+        mc:Ignorable="d"
+        Title="Поиск новой работы" Height="450" Width="500" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" ShowInTaskbar="False" Background="#FFF7B8F2">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid x:Name="WorkWindowPanel">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="ButtonWork0" Margin="5" Grid.Row="0" IsEnabled="{Binding MayDoItWork0}" Click="ButtonWork0_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Должность:" Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding WorkNames[0].Name}" Grid.Column="1" FontWeight="Bold"/>
+                    <TextBlock Text="Зарплата:" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <Label Content="{Binding WorkNames[0].Salary}" Grid.Column="1" ContentStringFormat="{}{0} руб./день" Grid.Row="1" Margin="-5,-5,-5,-5" FontWeight="Bold"/>
+                </Grid>
+            </Button>
+            <Button x:Name="ButtonWork1" Margin="5" Grid.Row="1" IsEnabled="{Binding MayDoItWork1}" Click="ButtonWork1_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Должность:" Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding WorkNames[1].Name}" Grid.Column="1" FontWeight="Bold"/>
+                    <TextBlock Text="Зарплата:" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <Label Content="{Binding WorkNames[1].Salary}" Grid.Column="1" ContentStringFormat="{}{0} руб./день" Grid.Row="1" Margin="-5,-5,-5,-5" FontWeight="Bold"/>
+                </Grid>
+            </Button>
+            <Button x:Name="ButtonWork2" Margin="5" Grid.Row="2" IsEnabled="{Binding MayDoItWork2}" Click="ButtonWork2_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Должность:" Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding WorkNames[2].Name}" Grid.Column="1" FontWeight="Bold"/>
+                    <TextBlock Text="Зарплата:" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <Label Content="{Binding WorkNames[2].Salary}" Grid.Column="1" ContentStringFormat="{}{0} руб./день" Grid.Row="1" Margin="-5,-5,-5,-5" FontWeight="Bold"/>
+                </Grid>
+            </Button>
+            <Button x:Name="ButtonWork3" Margin="5" Grid.Row="3" IsEnabled="{Binding MayDoItWork3}" Click="ButtonWork3_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Должность:" Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding WorkNames[3].Name}" Grid.Column="1" FontWeight="Bold"/>
+                    <TextBlock Text="Зарплата:" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <Label Content="{Binding WorkNames[3].Salary}" Grid.Column="1" ContentStringFormat="{}{0} руб./день" Grid.Row="1" Margin="-5,-5,-5,-5" FontWeight="Bold"/>
+                </Grid>
+            </Button>
+            <Button x:Name="ButtonWork4" Margin="5" Grid.Row="4" IsEnabled="{Binding MayDoItWork4}" Click="ButtonWork4_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Должность:" Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding WorkNames[4].Name}" Grid.Column="1" FontWeight="Bold"/>
+                    <TextBlock Text="Зарплата:" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <Label Content="{Binding WorkNames[4].Salary}" Grid.Column="1" ContentStringFormat="{}{0} руб./день" Grid.Row="1" Margin="-5,-5,-5,-5" FontWeight="Bold"/>
+                </Grid>
+            </Button>
+            <Button x:Name="ButtonWork5" Margin="5" Grid.Row="5" IsEnabled="{Binding MayDoItWork5}" Click="ButtonWork5_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Должность:" Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding WorkNames[5].Name}" Grid.Column="1" FontWeight="Bold"/>
+                    <TextBlock Text="Зарплата:" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <Label Content="{Binding WorkNames[5].Salary}" Grid.Column="1" ContentStringFormat="{}{0} руб./день" Grid.Row="1" Margin="-5,-5,-5,-5" FontWeight="Bold"/>
+                </Grid>
+            </Button>
+            <Button x:Name="ButtonWork6" Margin="5" Grid.Row="6" IsEnabled="{Binding MayDoItWork6}" Click="ButtonWork6_Click">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Должность:" Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding WorkNames[6].Name}" Grid.Column="1" FontWeight="Bold"/>
+                    <TextBlock Text="Зарплата:" Grid.Row="1" HorizontalAlignment="Right" Margin="0,0,5,0"/>
+                    <Label Content="{Binding WorkNames[6].Salary}" Grid.Column="1" ContentStringFormat="{}{0} руб./день" Grid.Row="1" Margin="-5,-5,-5,-5" FontWeight="Bold"/>
+                </Grid>
+            </Button>
+
+        </Grid>
+        <Grid Grid.Column="1" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="ButtonClose" Click="ButtonClose_Click" Grid.Row="1" Content="Закрыть"/>
+            <Image x:Name="ImageComputer" HorizontalAlignment="Left" Height="110" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" Source="/CompManBase;component/Images/Work.png"/>
+        </Grid>
+    </Grid>
+</Window>
