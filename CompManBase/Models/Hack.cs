@@ -284,7 +284,6 @@ namespace CompManBase.Models
                 Thread.Sleep(300);
                 addMissionText.Invoke("\\");
             }
-
             addMissionText.Invoke("\nДДОС атака сайта банка успешно проведена. Сайт больше не доступен клиентам.");
             addMissionText.Invoke("\n\nМиссия выполнена! +100000 рублей");
             _wallet.Add(100000);
@@ -295,11 +294,254 @@ namespace CompManBase.Models
         public void Mission5(Action<string> addMissionText, Action clearMissionText)
         {
             clearMissionText.Invoke();
-
+            addMissionText.Invoke("Соединение с почтовым сервером api.mail.com");
+            addMissionText.Invoke("\nУстановка соединения, необходимо применить анонимайзер .");
+            AnonimaizerDone = false;
+            int i = 10;
+            while (i >= 0 && !AnonimaizerDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nСоединение с ресурсом не удалось");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nСоединение установлено.\n\nВвод логина пользователя:> #");
+            for (int j = 0; j < 6; j++)
+            {
+                Thread.Sleep(1000);
+                addMissionText.Invoke("#");
+            }
+            addMissionText.Invoke("\nВвод пароля, необходимо применить программу подбора паролей .");
+            PasswordDone = false;
+            i = 10;
+            while (i >= 0 && !PasswordDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время ввода пароля");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешный вход в почтовый аккаунт пользователя\n\nПолучение секретной информации аккаунта начальника службы безопасности .");
+            for (int j = 0; j < 10; j++)
+            {
+                Thread.Sleep(500);
+                addMissionText.Invoke(".");
+            }
+            addMissionText.Invoke("\nСекретная информация об аккаунте начальника службы безопасности успешно получена.\nОтключение от почтового сервера.\n\n");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////
+            addMissionText.Invoke("Соединение с консолью безопасности сайта банка shield.bestbank.com");
+            addMissionText.Invoke("\nУстановка соединения, необходимо применить анонимайзер .");
+            AnonimaizerDone = false;
+            i = 10;
+            while (i >= 0 && !AnonimaizerDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nНе удалось соединиться с банком.");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nСоединение с системой безопасности установлено.\n\nВНИМАНИЕ! Процедура проверки пользователя, необходимо применить маскировку .");
+            MaskDone = false;
+            i = 10;
+            while (i >= 0 && !MaskDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nВы попались! Доступ откленен.");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 3000000 рублей!");
+                    _wallet.Substract(3000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nВы успешно замаскировались.\n\nВвод логина пользователя:> #");
+            for (int j = 0; j < 6; j++)
+            {
+                Thread.Sleep(1000);
+                addMissionText.Invoke("#");
+            }
+            addMissionText.Invoke("\nПолучение доступа. Ввод пароля пользователя:> *");
+            PasswordDone = false;
+            i = 10;
+            while (i >= 0 && !PasswordDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время ввода пароля! Вы попались!");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 3000000 рублей!");
+                    _wallet.Substract(3000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke("*");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешное получение доступа.\n\nОтключение защиты от ДДОС атак #");
+            for (int j = 0; j < 5; j++)
+            {
+                Thread.Sleep(1000);
+                addMissionText.Invoke("#");
+            }
+            addMissionText.Invoke("\nУспешное отключение защиты от ДДОС атак на 1 минуту.\nУспешный выход из системы безопасности банка.\n\nПора применять ДДОС-атаку ->");
+            DDOSDone = false;
+            i = 60;
+            while (i >= 0 && !DDOSDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время ввода отключения защиты.\n\nМиссия провалена!");
+                    _score.Substract(1);
+                    return;
+                }
+                i--;
+            }
+            addMissionText.Invoke("\nВНИМАНИЕ! Производится ДДОС Атака сайта банка! \\");
+            for (int j = 0; j < 30; j++)
+            {
+                Thread.Sleep(300);
+                addMissionText.Invoke("\\");
+            }
+            addMissionText.Invoke("\nДДОС атака сайта банка успешно проведена. Служба безопасности банка успешно отвлечена.");
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////
+            addMissionText.Invoke("Соединение с сервером транзакций банка itansactions.bestbank.com");
+            addMissionText.Invoke("\nУстановка соединения, необходимо применить анонимайзер .");
+            AnonimaizerDone = false;
+            i = 10;
+            while (i >= 0 && !AnonimaizerDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nНе удалось соединиться с банком.");
+                    addMissionText.Invoke("\n\nМиссия провалена!");
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nСоединение с сервером транзакций банка установлено.\n\nВНИМАНИЕ! Процедура проверки пользователя, необходимо применить маскировку .");
+            MaskDone = false;
+            i = 10;
+            while (i >= 0 && !MaskDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nВы попались! Доступ откленен.");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 3000000 рублей!");
+                    _wallet.Substract(3000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nВы успешно замаскировались.\n\nВвод логина пользователя:> #");
+            for (int j = 0; j < 6; j++)
+            {
+                Thread.Sleep(1000);
+                addMissionText.Invoke("#");
+            }
+            addMissionText.Invoke("\nПолучение доступа. Ввод пароля пользователя:> *");
+            PasswordDone = false;
+            i = 10;
+            while (i >= 0 && !PasswordDone)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время ввода пароля! Вы попались!");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 3000000 рублей!");
+                    _wallet.Substract(3000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke("*");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешное получение доступа к серверу транзакций банка.\n\nПеревод денег со счета номер 1. Необходимо применить программу финансовых транзакций .");
+            Finance = false;
+            i = 10;
+            while (i >= 0 && !Finance)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время отвлечения СБ! Вы попались!");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 3000000 рублей!");
+                    _wallet.Substract(3000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешный перевод денег со счета номер 1.\n\nПеревод денег со счета номер 2. Необходимо применить программу финансовых транзакций .");
+            Finance = false;
+            i = 10;
+            while (i >= 0 && !Finance)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время отвлечения СБ! Вы попались!");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 3000000 рублей!");
+                    _wallet.Substract(3000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешный перевод денег со счета номер 2.\n\nПеревод денег со счета номер 3. Необходимо применить программу финансовых транзакций .");
+            Finance = false;
+            i = 10;
+            while (i >= 0 && !Finance)
+            {
+                Thread.Sleep(1000);
+                if (i == 0)
+                {
+                    addMissionText.Invoke("\nИстекло время отвлечения СБ! Вы попались!");
+                    addMissionText.Invoke("\n\nМиссия провалена! За нарушение закона штраф 3000000 рублей!");
+                    _wallet.Substract(3000000);
+                    _score.Substract(1);
+                    return;
+                }
+                addMissionText.Invoke(".");
+                i--;
+            }
+            addMissionText.Invoke("\nУспешный перевод денег со счета номер 3.\n\nОтключение от сервера транзакций банка .");
+            for (int j = 0; j < 6; j++)
+            {
+                Thread.Sleep(1000);
+                addMissionText.Invoke(".");
+            }
+            //////////////////////////////////////////////////////////////////////////////////////////////////////
             addMissionText.Invoke("\n\nМиссия выполнена! +300000 рублей");
             _wallet.Add(300000);
             _score.Add(1);
         }
+
 
         /// <summary>
         /// Применение программы
